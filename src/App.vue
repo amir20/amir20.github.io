@@ -3,7 +3,9 @@
   <div class="relative z-10 flex flex-col min-h-screen">
     <nav class="flex justify-start m-4 gap-6 text-lg">
       <Logo class="color-blue-500 dark:color-white fill-current mr-auto" />
-      <router-link class="no-underline hover:underline text-white" :to="path" v-for="{ title, path } in menu">{{ title }}</router-link>
+      <router-link class="no-underline hover:underline text-gray-700 dark:text-white font-semibold" :to="path" v-for="{ title, path } in menu">{{
+        title
+      }}</router-link>
     </nav>
     <main class="flex items-center flex-1 p-4 md:p-8">
       <router-view v-slot="{ Component }">
