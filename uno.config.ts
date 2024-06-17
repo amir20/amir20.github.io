@@ -1,4 +1,4 @@
-import { defineConfig, presetUno, presetWebFonts, presetIcons } from "unocss";
+import { defineConfig, presetUno, presetWebFonts, presetIcons, presetTypography } from "unocss";
 
 import transformerDirectives from "@unocss/transformer-directives";
 
@@ -9,6 +9,7 @@ export default defineConfig({
       dark: "media",
     }),
     presetIcons(),
+    presetTypography(),
     presetWebFonts({
       fonts: {
         sans: "Roboto:300",

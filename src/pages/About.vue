@@ -1,25 +1,22 @@
 <template>
-  <div class="w-auto md:w-3/4 lg:w-1/2">
-    <h1 class="mb-8 text-5xl">Hello there.</h1>
-    <p class="text-lg font-light">
-      I am a software engineer and entrepreneur. I have started two companies in my life which has shaped me in many ways. I enjoy using new technology and
-      learning about new ideas. I mostly specialize in web technologies but also focus on ML, big data and real-time architecture. You can find some of my
-      projects on Github.
+  <div class="w-auto md:w-3/4 lg:w-1/2 prose text-lg">
+    <h1>Hello there.</h1>
+    <p>
+      I am a software engineer and manager with 18 years of experience, having worked at startups, large corporations, and as a co-founder of my own startup. My
+      projects have ranged from web development to infrastructure, and I have managed engineering teams and served as a technical lead. I am passionate about
+      building products and teams, constantly seeking new challenges and opportunities for growth.
     </p>
-    <br />
 
-    <p class="text-lg font-light">
-      I was born in Iran and moved to Seattle at a young age. I started programming in high school and studied computer science at the George Washington
-      University in Washington DC. After graduating, I worked at AOL on aol.com which taught me a lot about scalability. I left to join Opower in Arlington, VA.
-      Opower started my career in management. After a few years, I co-founded my own startup in Los Angeles and eventually moved to San Francisco. I have led
-      teams at Quid, Capital One labs in SF and infrastructure at UJET.
+    <p>
+      Born in Iran and raised in Seattle, I started programming in high school and went on to study computer science at George Washington University. My career
+      began at AOL, where I worked on movies, aol.com, music, and AIM. In 2011, I joined Opower to lead the development of the Home Energy Reports product.
+      Later, I co-founded Tilofy in 2014, creating a news recommendation engine for real-time content. I joined Google in 2019, where I worked on internal CRM systems and led the
+      growth team for Assistant Auto. Currently, I am a manager at Netflix, leading the Discovery Platform team.
     </p>
-    <br />
 
-    <p class="text-lg font-light">
-      I currently live in the East Bay and work at Google on <a href="https://www.android.com/auto/">Android Auto </a>
-      <a href="https://assistant.google.com/">Assistant</a>. I am a husband and father of two litte ones. I enjoy playing with my kids, listening to music,
-      reading books, cycling and weight training.
+    <p>
+      I live in the East Bay with my wife and two kids. In my free time, I enjoy weightlifting, playing games, and working on open source projects, which keep
+      me engaged and connected to the broader tech community.
     </p>
   </div>
 </template>
