@@ -1,4 +1,4 @@
-import { defineConfig, presetUno, presetWebFonts, presetIcons, presetTypography } from "unocss";
+import { defineConfig, presetUno, presetIcons, presetTypography } from "unocss";
 
 import transformerDirectives from "@unocss/transformer-directives";
 
@@ -10,12 +10,6 @@ export default defineConfig({
     }),
     presetIcons(),
     presetTypography(),
-    presetWebFonts({
-      fonts: {
-        sans: "Roboto:300",
-        playfair: "Playfair Display",
-      },
-    }),
   ],
   theme: {
     colors: {

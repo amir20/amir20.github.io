@@ -2,10 +2,10 @@
   <div class="w-auto md:w-3/4 lg:w-1/2">
     <h1 class="mb-8 text-5xl">Hi there, my name is Amir.</h1>
     <p class="text-lg font-light">
-      I am a software engineer, mentor and parent in San Francisco. I am currently an engineering manager at Netflix. Previously, I was at
+      I am a software engineer, mentor and parent in San Francisco area. Currently, I am an engineering manager at Netflix. Previously, I have worked at
       <a href="https://about.google" target="_blank" rel="noopener">Google</a>,
       <a target="_blank" rel="noopener" href="https://www.oracle.com/industries/utilities/opower-energy-efficiency/">Opower</a>, Capital One and a few other
-      start ups.
+      start ups. See my <router-link to="/projects">projects</router-link> for more information.
     </p>
     <div class="flex flex-wrap mt-8 -m-2">
       <a class="bg-purple-500 btn hover:bg-purple-600" href="https://github.com/amir20">

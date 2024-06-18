@@ -2,15 +2,15 @@
   <div class="w-auto md:w-4/5 lg:w-2/3">
     <h1 class="mb-8 text-5xl">Projects</h1>
     <div>
-      <ul class="space-y-8">
+      <ul class="space-y-8 text-lg">
         <li class="md:flex" v-for="project in projects" :key="project.title">
           <div class="md:flex-shrink-0">
-            <a class="mt-1 text-lg font-medium leading-tight" :href="project.link">
+            <a class="mt-1 font-medium leading-tight" :href="project.link">
               <img :src="project.image" :alt="project.imageAlt" width="320" height="165" class="object-cover w-full rounded shadow md:w-60" />
             </a>
           </div>
           <div class="mt-8 md:mt-0 md:ml-8">
-            <a class="mt-1 text-lg font-medium leading-tight" :href="project.link">{{ project.title }}</a>
+            <a class="mt-1 text-lg leading-tight" :href="project.link">{{ project.title }}</a>
             <p class="mt-2 text-lg" v-html="project.description"></p>
           </div>
         </li>
