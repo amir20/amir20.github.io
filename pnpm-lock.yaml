@@ -64,7 +64,7 @@ importers:
         version: 3.9.4(vite@5.3.1(lightningcss@1.25.1))
       vite-ssg:
         specifier: ^0.23.7
-        version: 0.23.7(critters@0.0.22)(vite@5.3.1(lightningcss@1.25.1))(vue-router@4.3.3(vue@3.4.29))(vue@3.4.29)
+        version: 0.23.7(critters@0.0.22)(vite@5.3.1(lightningcss@1.25.1))(vue-router@4.4.0(vue@3.4.29))(vue@3.4.29)
       vite-svg-loader:
         specifier: ^5.1.0
         version: 5.1.0(vue@3.4.29)
@@ -72,8 +72,8 @@ importers:
         specifier: ^3.4.29
         version: 3.4.29
       vue-router:
-        specifier: ^4.3.3
-        version: 4.3.3(vue@3.4.29)
+        specifier: ^4.4.0
+        version: 4.4.0(vue@3.4.29)
     devDependencies:
       critters:
         specifier: ^0.0.22
@@ -1945,8 +1945,8 @@ packages:
       terser:
         optional: true
 
-  vue-router@4.3.3:
-    resolution: {integrity: sha512-8Q+u+WP4N2SXY38FDcF2H1dUEbYVHVPtPCPZj/GTZx8RCbiB8AtJP9+YIxn4Vs0svMTNQcLIzka4GH7Utkx9xQ==}
+  vue-router@4.4.0:
+    resolution: {integrity: sha512-HB+t2p611aIZraV2aPSRNXf0Z/oLZFrlygJm+sZbdJaW6lcFqEDQwnzUBXn+DApw+/QzDU/I9TeWx9izEjTmsA==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -3981,7 +3981,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  vite-ssg@0.23.7(critters@0.0.22)(vite@5.3.1(lightningcss@1.25.1))(vue-router@4.3.3(vue@3.4.29))(vue@3.4.29):
+  vite-ssg@0.23.7(critters@0.0.22)(vite@5.3.1(lightningcss@1.25.1))(vue-router@4.4.0(vue@3.4.29))(vue@3.4.29):
     dependencies:
       '@unhead/dom': 1.9.13
       '@unhead/vue': 1.9.13(vue@3.4.29)
@@ -3996,7 +3996,7 @@ snapshots:
       yargs: 17.7.2
     optionalDependencies:
       critters: 0.0.22
-      vue-router: 4.3.3(vue@3.4.29)
+      vue-router: 4.4.0(vue@3.4.29)
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -4017,7 +4017,7 @@ snapshots:
       fsevents: 2.3.3
       lightningcss: 1.25.1
 
-  vue-router@4.3.3(vue@3.4.29):
+  vue-router@4.4.0(vue@3.4.29):
     dependencies:
       '@vue/devtools-api': 6.6.3
       vue: 3.4.29
