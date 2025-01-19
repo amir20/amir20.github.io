@@ -93,19 +93,19 @@ div {
   position: fixed;
   bottom: -10px;
 
-  :global(.wave:nth-of-type(1)) {
+  :deep(.wave:nth-of-type(1)) {
     fill: #a55eea;
   }
 
-  :global(.wave:nth-of-type(2)) {
+  :deep(.wave:nth-of-type(2)) {
     fill: #fed330;
   }
 
-  :global(.wave:nth-of-type(3)) {
+  :deep(.wave:nth-of-type(3)) {
     fill: #45aaf2;
   }
 
-  :global(.wave:nth-of-type(4)) {
+  :deep(.wave:nth-of-type(4)) {
     fill: #0fb9b1;
   }
 }
