@@ -29,15 +29,6 @@ export default {
     return {
       projects: [
         {
-          title: "Clashleaders.com",
-          link: "https://www.clashleaders.com/",
-          image: images["/src/images/clashleaders.png"].default,
-          imageAlt: "Clashleaders screenshot",
-          description: `Clashleaders is a website dedicated to <a href="https://supercell.com/en/games/clashofclans/">Clash of Clans</a> game. This website shows trending
-              leaderboards across the world for 6 million players. Each clan has insights that are ranked against all other clans. Data is visualized using
-              beautiful charts and graphs.`,
-        },
-        {
           title: "Dozzle for Docker",
           link: "https://dozzle.dev/",
           image: images["/src/images/dozzle.png"].default,
@@ -53,6 +44,13 @@ export default {
           imageAlt: "Phantom screenshot",
           description: `Phantom is a module for integrating <a href="https://phantomjs.org/">PhantomJs</a> with Node. This project is no longer maintained because
               PhantomJs has been deprecated.`,
+        },
+        {
+          title: "Clashleaders.com",
+          link: "https://www.clashleaders.com/",
+          image: images["/src/images/clashleaders.png"].default,
+          imageAlt: "Clashleaders screenshot",
+          description: `Clashleaders was a website for the <a href="https://supercell.com/en/games/clashofclans/">Clash of Clans</a> game, created to help players track their progress and compete. However, it became too time-consuming to maintain, so I decided to shut it down and focus on other projects.`,
         },
       ],
     };
