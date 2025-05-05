@@ -36,7 +36,7 @@ const menu = {
 <style scoped>
 .scale-enter-active,
 .scale-leave-active {
-  transition: all 0.5s ease;
+  transition: all 150ms ease-out;
   @media (hover: none) {
     transition: none !important;
   }
@@ -45,6 +45,6 @@ const menu = {
 .scale-enter-from,
 .scale-leave-to {
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.97);
 }
 </style>
