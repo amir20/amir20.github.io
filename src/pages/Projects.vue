@@ -1,6 +1,6 @@
 <template>
   <div class="w-auto md:w-4/5 lg:w-2/3">
-    <h1 class="mb-8 text-5xl">Projects</h1>
+    <h1 class="mb-8 text-5xl" style="view-transition-name: title">Projects</h1>
     <div>
       <ul class="space-y-8 text-lg">
         <li class="md:flex" v-for="project in projects" :key="project.title">

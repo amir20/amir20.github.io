@@ -1,8 +1,8 @@
 <template>
   <Waves />
   <div class="relative z-10 flex flex-col min-h-screen">
-    <nav class="flex justify-start m-4 gap-3 text-lg" style="view-transition-name: nav">
-      <Logo class="color-blue-500 dark:color-white fill-current mr-auto" />
+    <nav class="flex justify-start m-4 gap-x-3 text-lg" style="view-transition-name: nav">
+      <Logo class="color-blue-500 dark:color-white fill-current mr-auto mt-2" />
       <router-link class="no-underline! text-gray-700 dark:text-white p-2 z-2" :to="path" v-for="{ title, path } in menu">{{ title }}</router-link>
     </nav>
     <main class="flex items-center flex-1 p-4 md:p-8">
@@ -51,14 +51,7 @@ nav a {
 
   &[aria-current="page"]::before {
     content: " ";
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0.25em;
-    background-color: #eee;
+    --at-apply: "absolute w-full h-[3px] bottom-0 left-0 right-0 rounded-sm bg-gray-700 dark:bg-white";
     view-transition-name: selected;
   }
 }

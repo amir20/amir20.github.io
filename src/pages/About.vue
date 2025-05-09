@@ -1,6 +1,6 @@
 <template>
   <div class="w-auto md:w-3/4 lg:w-1/2">
-    <h1 class="text-5xl">Hello there.</h1>
+    <h1 class="text-5xl" style="view-transition-name: title">Hello there.</h1>
     <div class="prose text-lg max-w-full">
       <p>
         I am a software engineer and manager with 18 years of experience, having worked at startups, large corporations, and as a co-founder of my own startup.
