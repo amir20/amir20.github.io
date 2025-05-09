@@ -92,6 +92,7 @@ div {
   opacity: 0.8;
   position: fixed;
   bottom: -10px;
+  view-transition-name: waves;
 
   :deep(.wave:nth-of-type(1)) {
     fill: #a55eea;
