@@ -66,8 +66,8 @@ importers:
         specifier: ^3.10.4
         version: 3.10.4(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(tsx@4.19.2))
       vite-ssg:
-        specifier: ^26.1.1
-        version: 26.1.1(beasties@0.3.3)(prettier@3.5.3)(unhead@2.0.8)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(tsx@4.19.2))(vue-router@4.5.1(vue@3.5.13))(vue@3.5.13)
+        specifier: ^28.0.0
+        version: 28.0.0(beasties@0.3.3)(prettier@3.5.3)(unhead@2.0.12)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(tsx@4.19.2))(vue-router@4.5.1(vue@3.5.13))(vue@3.5.13)
       vite-svg-loader:
         specifier: ^5.1.0
         version: 5.1.0(vue@3.5.13)
@@ -589,10 +589,10 @@ packages:
   '@unhead/dom@1.7.4':
     resolution: {integrity: sha512-xanQMtGmgikqTvDtuyJy6GXgqvUXOdrdnIyqAabpeS8goD8udxo0stzjtbT8ERbMQibzPGSGcN+Ux+MKoWzrjQ==}
 
-  '@unhead/dom@2.0.8':
-    resolution: {integrity: sha512-24ugFsZk1oj0vwZMkGzMROu1zSUKoZT9a5IXisfSOozZvSL12wnm6g8bMR8OwUCj0G6kBIbcnhS8l79qcNBVuw==}
+  '@unhead/dom@2.0.12':
+    resolution: {integrity: sha512-odruHzIYEixtM/lDLQG2t9Lv3iEyNxDW5uuXFGoNUVDFR4NJS/FWbBzCYJ0jszsNUp6BXAAWZevBcwbpgYfB2g==}
     peerDependencies:
-      unhead: 2.0.8
+      unhead: 2.0.12
 
   '@unhead/schema@1.7.4':
     resolution: {integrity: sha512-wUL4CK0NSEm3KH4kYsiqVYQw5xBk1hpBi5tiNj0BTZgpQVrRufICdK5EHA9Fh7OIAR6tOTWwTvsf5+nK0BgQDA==}
@@ -608,8 +608,8 @@ packages:
     peerDependencies:
       vue: '>=2.7 || >=3'
 
-  '@unhead/vue@2.0.8':
-    resolution: {integrity: sha512-e30+CfCl1avR+hzFtpvnBSesZ5TN2KbShStdT2Z+zs5WIBUvobQwVxSR0arX43To6KfwtCXAfi0iOOIH0kufHQ==}
+  '@unhead/vue@2.0.12':
+    resolution: {integrity: sha512-WFaiCVbBd39FK6Bx3GQskhgT9s45Vjx6dRQegYheVwU1AnF+FAfJVgWbrl21p6fRJcLAFp0xDz6wE18JYBM0eQ==}
     peerDependencies:
       vue: '>=3.5.13'
 
@@ -756,8 +756,8 @@ packages:
     resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
     engines: {node: '>=8'}
 
-  ansis@3.17.0:
-    resolution: {integrity: sha512-0qWUglt9JEqLFr3w1I1pbrChn1grhaiAR2ocX1PP/flRmxgtwTzPFFFnfIlD6aMOLQZgSuCRlidD70lvx8yhzg==}
+  ansis@4.1.0:
+    resolution: {integrity: sha512-BGcItUBWSMRgOCe+SVZJ+S7yTRG0eGt9cXAHev72yuGcY23hnLA7Bky5L/xLyPINoSN95geovfBkqoTlNZYa7w==}
     engines: {node: '>=14'}
 
   anymatch@3.1.3:
@@ -1302,7 +1302,7 @@ packages:
     resolution: {integrity: sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==}
 
   isexe@2.0.0:
-    resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
+    resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
   jiti@2.4.2:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
@@ -1569,6 +1569,7 @@ packages:
   qs@6.10.5:
     resolution: {integrity: sha512-O5RlPh0VFtR78y79rgcgKK4wbAI0C5zGVLztOIdpWX6ep368q5Hv6XRxDvXuZ9q3C6v+e3n8UfZZJw7IIG27eQ==}
     engines: {node: '>=0.6'}
+    deprecated: when using stringify with arrayFormat comma, `[]` is appended on single-item arrays. Upgrade to v6.11.0 or downgrade to v6.10.4 to fix.
 
   quansync@0.2.10:
     resolution: {integrity: sha512-t41VRkMYbkHyCYmOvx/6URnN80H7k4X0lLdBMGsz+maAwrJQYB1djpV6vHrQIBE0WBSGqhtEHrK9U3DWWH8v7A==}
@@ -1619,7 +1620,7 @@ packages:
     engines: {node: '>=v12.22.7'}
 
   secure-compare@3.0.1:
-    resolution: {integrity: sha1-8aAymzCLIh+uN7mXTz1XjQypmeM=}
+    resolution: {integrity: sha512-AckIIV90rPDcBcglUwXPF3kg0P0qmPsPXAj6BBEENQE1p5yA1xfmDJzfi1Tappj37Pv2mVbKpL3Z1T+Nn7k1Qw==}
 
   send@1.2.0:
     resolution: {integrity: sha512-uaW0WwXKpL9blXE2o0bRhoL2EGXIrZxQ2ZQ4mgcfoBxdFmQold+qWsD2jLrfZ0trjKL6vOw0j//eAwcALFjKSw==}
@@ -1733,8 +1734,8 @@ packages:
   unhead@1.7.4:
     resolution: {integrity: sha512-oOv+9aQS85DQUd0f1uJBtb2uG3SKwCURSTuUWp9WKKzANCb1TjW2dWp5TFmJH5ILF6urXi4uUQfjK+SawzBJAA==}
 
-  unhead@2.0.8:
-    resolution: {integrity: sha512-63WR+y08RZE7ChiFdgNY64haAkhCtUS5/HM7xo4Q83NA63txWbEh2WGmrKbArdQmSct+XlqbFN8ZL1yWpQEHEA==}
+  unhead@2.0.12:
+    resolution: {integrity: sha512-5oo0lwz81XDXCmrHGzgmbaNOxM8R9MZ3FkEs2ROHeW8e16xsrv7qXykENlISrcxr3RLPHQEsD1b6js9P2Oj/Ow==}
 
   union@0.5.0:
     resolution: {integrity: sha512-N6uOhuW6zO95P3Mel2I2zMsbsanvvtgn6jVqJv4vbVcz/JN0OkL9suomjQGmWtxJQXOCqUJvquc1sMeNz/IwlA==}
@@ -1791,14 +1792,14 @@ packages:
     peerDependencies:
       vite: ^2 || ^3 || ^4 || ^5 || ^6
 
-  vite-ssg@26.1.1:
-    resolution: {integrity: sha512-cLcSh6csGf34Vv1ah9VuZwmHTqAXcCjOEAPQ2pWQove185UJcq6gtrOZI66v5GwCzIIS5Gex/NDXHrWyZ2dEpg==}
-    engines: {node: '>=14.0.0'}
+  vite-ssg@28.0.0:
+    resolution: {integrity: sha512-idYdFXRi1XdiE4fd1g6n/NIpGn6KzMX4Lzrq2Ynr+j2FTd0UMuBlMJh6Z4kB6ux4lBonTOU2tTV2hhL/ubQ/1w==}
+    engines: {node: '>=20.0.0'}
     hasBin: true
     peerDependencies:
       beasties: ^0.2.0
       prettier: ^3.3.0
-      vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0-0 || ^6.0.0
+      vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0-0 || ^6.0.0 || ^7.0.0-0
       vue: ^3.2.10
       vue-router: ^4.0.1
     peerDependenciesMeta:
@@ -2248,9 +2249,9 @@ snapshots:
       '@unhead/schema': 1.7.4
       '@unhead/shared': 1.7.4
 
-  '@unhead/dom@2.0.8(unhead@2.0.8)':
+  '@unhead/dom@2.0.12(unhead@2.0.12)':
     dependencies:
-      unhead: 2.0.8
+      unhead: 2.0.12
 
   '@unhead/schema@1.7.4':
     dependencies:
@@ -2274,10 +2275,10 @@ snapshots:
       unhead: 1.7.4
       vue: 3.5.13
 
-  '@unhead/vue@2.0.8(vue@3.5.13)':
+  '@unhead/vue@2.0.12(vue@3.5.13)':
     dependencies:
       hookable: 5.5.3
-      unhead: 2.0.8
+      unhead: 2.0.12
       vue: 3.5.13
 
   '@unocss/astro@66.1.1(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(tsx@4.19.2))(vue@3.5.13)':
@@ -2509,7 +2510,7 @@ snapshots:
     dependencies:
       color-convert: 2.0.1
 
-  ansis@3.17.0: {}
+  ansis@4.1.0: {}
 
   anymatch@3.1.3:
     dependencies:
@@ -3569,7 +3570,7 @@ snapshots:
       '@unhead/shared': 1.7.4
       hookable: 5.5.3
 
-  unhead@2.0.8:
+  unhead@2.0.12:
     dependencies:
       hookable: 5.5.3
 
@@ -3639,11 +3640,11 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  vite-ssg@26.1.1(beasties@0.3.3)(prettier@3.5.3)(unhead@2.0.8)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(tsx@4.19.2))(vue-router@4.5.1(vue@3.5.13))(vue@3.5.13):
+  vite-ssg@28.0.0(beasties@0.3.3)(prettier@3.5.3)(unhead@2.0.12)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.3)(terser@5.39.0)(tsx@4.19.2))(vue-router@4.5.1(vue@3.5.13))(vue@3.5.13):
     dependencies:
-      '@unhead/dom': 2.0.8(unhead@2.0.8)
-      '@unhead/vue': 2.0.8(vue@3.5.13)
-      ansis: 3.17.0
+      '@unhead/dom': 2.0.12(unhead@2.0.12)
+      '@unhead/vue': 2.0.12(vue@3.5.13)
+      ansis: 4.1.0
       cac: 6.7.14
       html-minifier-terser: 7.2.0
       html5parser: 2.0.2
