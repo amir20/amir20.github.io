@@ -22,7 +22,7 @@
     "@vue/server-renderer": "^3.5.13",
     "@vueuse/head": "^2.0.0",
     "beasties": "^0.3.3",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "d3": "^7.9.0",
     "d3-selection": "^3.0.0",
     "d3-shape": "^3.2.0",
