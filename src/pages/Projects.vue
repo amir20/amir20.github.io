@@ -33,9 +33,15 @@ export default {
           link: "https://dozzle.dev/",
           image: images["/src/images/dozzle.png"].default,
           imageAlt: "Dozzle screenshot",
-          description: `Dozzle is a simple, lightweight application that provides you with a web based interface to monitor your
-              <a href="https://www.docker.com/">Docker</a> container logs live. It doesn’t store log information, it is for live monitoring of your container
-              logs only.`,
+          description: `Dozzle is a web application that provides an interface to monitor your
+              <a href="https://www.docker.com/">Docker</a> containers and logs. It supports multiple hosts, Docker Swarm and Kubernetes.`,
+        },
+        {
+          title: "dtop",
+          link: "https://dtop.dev/",
+          image: images["/src/images/dtop.png"].default,
+          imageAlt: "dtop screenshot",
+          description: `dtop is a TUI application for monitoring Docker containers across multiple hosts with real-time CPU, memory, and network metrics. Built with Rust which uses minimal dependencies and is highly performant.`,
         },
         {
           title: "PhantomJS integration for NodeJS",
