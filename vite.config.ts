@@ -11,5 +11,24 @@ export default defineConfig({
   build: {
     cssMinify: "lightningcss",
   },
-  plugins: [UnoCSS(), Vue(), SVGLoader(), WebfontDownload()],
+  plugins: [
+    UnoCSS(),
+    Vue(),
+    SVGLoader({
+      svgoConfig: {
+        plugins: [
+          {
+            name: "preset-default",
+            params: {
+              overrides: {
+                // Disable convertPathData which is causing the issue
+                convertPathData: false,
+              },
+            },
+          },
+        ],
+      },
+    }),
+    WebfontDownload(),
+  ],
 });

@@ -13,7 +13,7 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      cream: "#eff0eb",
+      cream: "#f5f3ee",
     },
   },
 });
