@@ -46,7 +46,7 @@ export default {
     this.vis = d3.select(this.$el).append("svg").attr("pointer-events", "all");
     this.defs = this.vis.append("defs");
 
-    // Create gradient defs and blur filters
+    // Create gradient defs (no SVG blur filters — use CSS filter instead)
     for (let i = 0; i < this.wavesCount; i++) {
       const grad = this.defs
         .append("linearGradient")
@@ -65,25 +65,16 @@ export default {
         .attr("offset", "100%")
         .attr("stop-color", waveGradients[i][1]);
 
-      // Blur filter for depth
-      if (waveBlur[i] > 0) {
-        const filter = this.defs
-          .append("filter")
-          .attr("id", `wave-blur-${i}`);
-        filter
-          .append("feGaussianBlur")
-          .attr("in", "SourceGraphic")
-          .attr("stdDeviation", waveBlur[i]);
-      }
-
+      // Use CSS filter: blur() instead of SVG feGaussianBlur for GPU acceleration
       const wave = this.vis
         .append("path")
         .attr("class", "wave")
         .style("fill", `url(#wave-grad-${i})`)
-        .style("opacity", 0.15 + ((i + 1) / this.wavesCount) * 0.55);
+        .style("opacity", 0.15 + ((i + 1) / this.wavesCount) * 0.55)
+        .style("will-change", "d");
 
       if (waveBlur[i] > 0) {
-        wave.style("filter", `url(#wave-blur-${i})`);
+        wave.style("filter", `blur(${waveBlur[i]}px)`);
       }
 
       this.waves.push(wave);
@@ -144,16 +135,10 @@ export default {
       }
     },
     step(elapsed) {
-      // Update gradient colors based on mouse hue shift
-      const hueShift = this.mouseHue;
-      for (let i = 0; i < this.wavesCount; i++) {
-        // Shift gradient stop colors
-        const stops = this.defs.select(`#wave-grad-${i}`).selectAll("stop");
-        stops.each(function (d, j) {
-          const baseColor = waveGradients[i][j];
-          d3.select(this).attr("stop-color", shiftHue(baseColor, hueShift));
-        });
+      // Apply hue shift on the container div (GPU-composited, avoids SVG re-rasterization)
+      this.$el.style.filter = `hue-rotate(${this.mouseHue}deg)`;
 
+      for (let i = 0; i < this.wavesCount; i++) {
         this.pathHeights[i] += (this.h / multipier.value - (this.mousePosition[1] / 3 + this.mousePosition[0] / 3 + 200) - this.pathHeights[i]) / 10;
         this.update(elapsed, this.pathHeights[i], this.waves[i], this.paths[i], this.seeds[i]);
       }
@@ -169,48 +154,6 @@ export default {
   },
 };
 
-// Utility: shift a hex color's hue by degrees
-function shiftHue(hex, degrees) {
-  const r = parseInt(hex.slice(1, 3), 16) / 255;
-  const g = parseInt(hex.slice(3, 5), 16) / 255;
-  const b = parseInt(hex.slice(5, 7), 16) / 255;
-
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  const d = max - min;
-
-  let h = 0;
-  if (d !== 0) {
-    if (max === r) h = ((g - b) / d + 6) % 6;
-    else if (max === g) h = (b - r) / d + 2;
-    else h = (r - g) / d + 4;
-    h *= 60;
-  }
-
-  const l = (max + min) / 2;
-  const s = d === 0 ? 0 : d / (1 - Math.abs(2 * l - 1));
-
-  h = (h + degrees + 360) % 360;
-
-  // HSL to RGB
-  const c = (1 - Math.abs(2 * l - 1)) * s;
-  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
-  const m = l - c / 2;
-
-  let r1, g1, b1;
-  if (h < 60) [r1, g1, b1] = [c, x, 0];
-  else if (h < 120) [r1, g1, b1] = [x, c, 0];
-  else if (h < 180) [r1, g1, b1] = [0, c, x];
-  else if (h < 240) [r1, g1, b1] = [0, x, c];
-  else if (h < 300) [r1, g1, b1] = [x, 0, c];
-  else [r1, g1, b1] = [c, 0, x];
-
-  const toHex = (v) =>
-    Math.round((v + m) * 255)
-      .toString(16)
-      .padStart(2, "0");
-  return `#${toHex(r1)}${toHex(g1)}${toHex(b1)}`;
-}
 </script>
 <style scoped>
 div {
@@ -221,6 +164,8 @@ div {
   left: 0;
   right: 0;
   view-transition-name: waves;
+  will-change: filter;
+  transform: translateZ(0);
 }
 
 .noise-overlay {
