@@ -1,0 +1,216 @@
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+
+
+% Just in case someone needs a heading that does not need to be in a list
+\newcommand{\resumeHeading}[4]{
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{description}}
+\newcommand{\resumeSubHeadingListEnd}{\end{description}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%------------- Resume starts here -----------------------
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://amirraminfar.me/}{\Large Amir Raminfar}} & Email : \href{mailto:findamir@gmail.com}{findamir@gmail.com}\\
+  \href{https://amirraminfar.me/}{https://amirraminfar.me} & Mobile : +1-202-549-7332 \\
+\end{tabular*}
+
+% --------SUMMARY------------
+\section{Summary}
+  {Engineering leader with 20+ years of experience building and managing multiple teams. Passionate about building a culture of ownership and excellence.}
+
+% Experience
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+    {Google}{Mountain View, CA}
+    {Engineering Manager for Assistant Auto Growth team}{2022 - Present}
+    \resumeItemListStart
+      \item Managed multiple teams to target and activate new and at-risk assistant users with ML. Using proactive suggestions on voice plate and notifications on mobile to increase DAU by 5\%.
+      \item Introduced just in time voice consent with a redesigned onboarding on Google cars which led to improving permission opt-in by 10\%.
+      \item Launched remote setup for iOS and Android which enabled users to setup their profile and permissions. Currently being launched with GM and other OEMs.
+      \item Set product strategy for 2023 and 2024 for Growth team. Working with product managers and designers to define the roadmap and objective key results.
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Google}{Mountain View, CA}
+      {Technical Lead Manager for Google Ads Internal CRM}{2019 - 2022}
+      \resumeItemListStart
+        \item Led the frontend team for Google Ads internal CRM to build an online intelligence platform for sellers to increase their productivity and revenue with an AI recommendation engine.
+        \item Owned the annual roadmap planning for 20+ engineers and 3 product managers on forecasting and setting quotas across all of ads sales.
+        \item Launched an alerting system for sales managers to track anomalies in their portfolio by comparing across other verticals.
+        \item Created an educational product tour using simple ML models which recommended features not used by sales managers to improve their productivity.
+        \item Led the technical architecture on the frontend team to improve developer happiness and engineering excellence, optimizing latency and application uptime.
+      \resumeItemListEnd
+
+      \resumeSubheading
+        {Ujet.co}{San Francisco, CA}
+        {Engineering Director}{2018 - 2019}
+      \resumeItemListStart
+        \item Moved monolithic Rails application to micro-services by introducing Go and scaling to 3,750 qps.
+        \item Grew the team to 15 engineers, three tech leads for the SRE, Server \& API design and ML efforts.
+        \item Product owner for all of UJET’s security efforts. Architected and launched an authentication platform which integrated with OpenAuth, Auth0 and Okta using an internal JWT implementation for their SOA.
+        \item Introduced Apache Kafka, Elasticsearch and Logstash to enable a real-time analytical reporting engine written in Go and deployed to production to power all of UJET’s customer facing dashboards.
+      \resumeItemListEnd
+
+    \pagebreak[3]
+
+    \resumeSubheading
+    {Capital One}{San Francisco, CA}
+    {Engineering Director}{2017 - 2018}
+    \resumeItemListStart
+      \item Technology leader for the labs and innovation teams in SF. Managed a team of 20 engineers with two managers.
+      \item Pitched and built a content management system to power all of Capital One’s promotion modules on mobile devices. Tracked user engagement over time for data analytics and customer retention in Apache Spark.
+      \item Migrated all internal micro-services to Docker on AWS EKS with 99.9\% uptime built on Java, Go and Python.
+      \item Product owner for all Capital One cryptocurrency products. Integrated their wallet app with Coinbase, Chain.io and other smart contract providers. Launched an internal blockchain platform which is still used across all business platform teams.
+    \resumeItemListEnd
+
+    \pagebreak[3]
+
+    \resumeSubheading
+    {Quid, Inc}{San Francisco, CA}
+    {Engineering Director}{2016 - 2017}
+    \resumeItemListStart
+      \item Led the engineering team for web and mobile to deliver AI visualization platform for Fortune 500 companies.
+      \item Provided technical leadership for Docker migration with the SRE team and deployed to production in OpenShift.
+    \resumeItemListEnd
+
+    \pagebreak[3]
+
+    \resumeSubheading
+    {Opower (acquired by Oracle)}{San Francisco, CA}
+    {Engineering Director}{2011 - 2016}
+    \resumeItemListStart
+      \item Engineering lead for the email, paper reports and all digital communications with six engineering managers as direct reports and 60 ICs.
+      \item Delivered a four-year product roadmap for their outbound communication products which send paper and digital reports to 50+ million households per week.
+      \item Responsible for the quarter deliverables consisting of ten consumer-facing products and four platform initiatives with technical roadmap migrating to Docker and deployment in AWS.
+      \item Participated in design reviews and architectural decisions with the CTO and VP of engineering. Delivered improvements to internal communication platform resulting in 16x improvement in throughput.
+      \item Actively hired and interviewed engineers, designers, and product managers. Improved the quality of their interview process by changing phone interview and technical questions. Hired over 15 senior engineers and managers since 2014.
+      \item Planned and executed a process in which engineers self-selected into their scrum teams. Resulted in 90\% overall happiness across all engineering teams.
+    \resumeItemListEnd
+
+    \resumeSubheading
+    {Tilofy, Inc}{Los Angeles, CA}
+    {Co-Founder}{2013 - 2014}
+  \resumeItemListStart
+    \item Co-founded a startup to build a real-time news and social media analytics platform. Built a team of 10 engineers and designers.
+    \item Pitched and built a clustering algorithm to group similar news articles and social media posts together. Used a combination of NLP and machine learning to cluster 1M+ articles per day.
+    \item Built a real-time dashboard to track trending topics and news stories. Used a combination of Elasticsearch and Redis to power the dashboard.
+  \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+  \pagebreak[3]
+  % Education
+  \section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {The George Washington University}{Washington, DC}
+      {Master of Science in Computer Science}{2011}
+    \resumeSubheading
+      {The George Washington University}{Washington, DC}
+      {Bachelor of Science in Computer Science}{2005}
+  \resumeSubHeadingListEnd
+
+  \pagebreak[3]
+% Projects
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Dozzle for Docker}
+      {Creator of open-source project to view container logs using Docker API written in Go with one million weekly downloads.}
+    \resumeSubItem{Clashleaders.com}
+      {Web app written in VueJs, Python DataFrames and Docker to track trends and leaderboards for the Clash of Clan game. Total of 5,000 monthly active users.}
+  \resumeSubHeadingListEnd
+
+
+% --------PROGRAMMING SKILLS------------
+% \section{Programming Skills}
+%   \resumeSubHeadingListStart
+%   \item{
+%     \textbf{Languages}{: Scala, Python, Javascript, C++, SQL, Java}
+%     \hfill
+%     \textbf{Technologies}{: AWS, Play, React, Kafka, GCE}
+%     }
+% \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
