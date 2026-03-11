@@ -5,7 +5,7 @@ body {
 }
 
 a {
-  --at-apply: "text-gray-800 hover:text-gray-950 dark:text-gray-200 underline-offset-4 dark:hover:text-white underline underline-offset-4 decoration-gray-400 dark:decoration-gray-500";
+  --at-apply: "text-[#b8513d] hover:text-[#943f2f] dark:text-[#d4a87c] underline-offset-4 dark:hover:text-[#e8c49e] underline underline-offset-4 decoration-[#d4a87c]/40 dark:decoration-[#d4a87c]/40";
 }
 
 h1,

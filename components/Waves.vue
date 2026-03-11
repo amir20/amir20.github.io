@@ -95,19 +95,19 @@ div {
   view-transition-name: waves;
 
   :deep(.wave:nth-of-type(1)) {
-    fill: #8b7355;
+    fill: #c8846a;
   }
 
   :deep(.wave:nth-of-type(2)) {
-    fill: #b8a590;
+    fill: #d4a87c;
   }
 
   :deep(.wave:nth-of-type(3)) {
-    fill: #6b8f9e;
+    fill: #5a9ea8;
   }
 
   :deep(.wave:nth-of-type(4)) {
-    fill: #2d4a56;
+    fill: #2d6b72;
   }
 }
 </style>

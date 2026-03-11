@@ -38,7 +38,7 @@ nav a {
 
   &.router-link-active::before {
     content: " ";
-    --at-apply: "absolute w-full h-[2px] bottom-0 left-0 right-0 bg-gray-800 dark:bg-white";
+    --at-apply: "absolute w-full h-[2px] bottom-0 left-0 right-0 bg-[#b8513d] dark:bg-[#d4a87c]";
     view-transition-name: selected;
   }
 }
