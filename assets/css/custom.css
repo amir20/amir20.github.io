@@ -1,0 +1,27 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+a {
+  --at-apply: "text-gray-800 hover:text-gray-950 dark:text-gray-200 underline-offset-4 dark:hover:text-white underline underline-offset-4 decoration-gray-400 dark:decoration-gray-500";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3, h4, h5, h6 {
+    color: #f0ece4;
+  }
+}
