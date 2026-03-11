@@ -38,6 +38,6 @@ onMounted(() => {
 
 <style scoped>
 .btn {
-  --at-apply: text-gray-700 dark:text-gray-200 py-2.5 px-5 rounded-lg inline-flex items-center no-underline border border-gray-300 dark:border-gray-600 "hover:bg-[#2d6b72] hover:text-white hover:border-[#2d6b72] dark:hover:bg-[#5a9ea8] dark:hover:text-gray-900 dark:hover:border-[#5a9ea8]" transition-all duration-200 gap-2 text-sm font-medium tracking-wide;
+  --at-apply: text-gray-700 dark:text-gray-200 py-2.5 px-5 rounded-lg inline-flex items-center "no-underline!" border border-gray-300 dark:border-gray-600 "hover:bg-[#2d6b72] hover:text-white hover:border-[#2d6b72] dark:hover:bg-[#5a9ea8] dark:hover:text-gray-900 dark:hover:border-[#5a9ea8]" transition-all duration-200 gap-2 text-sm font-medium tracking-wide;
 }
 </style>
