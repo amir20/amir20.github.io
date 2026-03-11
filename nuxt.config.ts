@@ -51,14 +51,5 @@ export default defineNuxtConfig({
     },
   },
 
-  vite: {
-    css: {
-      transformer: "lightningcss",
-    },
-    build: {
-      cssMinify: "lightningcss",
-    },
-  },
-
   compatibilityDate: "2026-03-11",
 });
