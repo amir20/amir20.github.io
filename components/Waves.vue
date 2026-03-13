@@ -126,7 +126,11 @@ export default {
     init() {
       this.w = window.innerWidth;
       this.h = window.innerHeight;
-      this.vis.attr("width", this.w).attr("height", this.h);
+      // Use a minimum width so waves stay wide and smooth on narrow screens
+      this.effectiveW = Math.max(this.w, 1200);
+      const overflow = (this.effectiveW - this.w) / 2;
+      this.vis.attr("width", this.effectiveW).attr("height", this.h)
+        .style("margin-left", `${-overflow}px`);
 
       for (let i = 0; i < this.wavesCount; i++) {
         const layer = waveLayers[i];
@@ -135,9 +139,9 @@ export default {
 
         pathObj.data[0] = [-200 * Math.random(), this.h];
         for (let j = 0; j < pts; j++) {
-          pathObj.data[j + 1] = [(this.w / pts) * j, pathObj.data[j + 1]?.[1] || this.h / 4];
+          pathObj.data[j + 1] = [(this.effectiveW / pts) * j, pathObj.data[j + 1]?.[1] || this.h / 4];
         }
-        pathObj.data[pts + 1] = [this.w + Math.random() * 200, this.h];
+        pathObj.data[pts + 1] = [this.effectiveW + Math.random() * 200, this.h];
         this.pathHeights[i] = this.h / 2;
       }
     },
@@ -201,6 +205,7 @@ div {
   bottom: -10px;
   left: 0;
   right: 0;
+  overflow: hidden;
   view-transition-name: waves;
   will-change: filter;
   transform: translateZ(0);
