@@ -181,8 +181,25 @@ div {
   left: 0;
   right: 0;
   overflow: hidden;
-  view-transition-name: waves;
+  view-transition-name: none;
   will-change: filter;
-  transform: translateZ(0);
+  transform: translateY(100%);
+  animation: slide-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards,
+    bob 6s ease-in-out 1.4s infinite;
+}
+
+@keyframes slide-up {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
 }
 </style>

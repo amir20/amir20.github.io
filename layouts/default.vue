@@ -1,7 +1,4 @@
 <template>
-  <ClientOnly>
-    <Waves />
-  </ClientOnly>
   <div class="relative z-10 flex flex-col min-h-screen">
     <nav class="flex justify-start mx-6 my-5 gap-x-5 text-base" style="view-transition-name: nav">
       <Logo class="color-gray-800 dark:color-white fill-current mr-auto mt-1" />

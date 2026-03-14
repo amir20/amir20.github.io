@@ -1,17 +1,23 @@
 <template>
   <div class="w-auto md:w-4/5 lg:w-2/3">
-    <h1 class="mb-10 text-5xl md:text-6xl leading-tight" style="view-transition-name: title">Projects</h1>
+    <h1 class="mb-6 text-5xl md:text-6xl leading-tight" style="view-transition-name: title">Projects</h1>
     <div>
       <ul class="space-y-10 text-lg">
         <li class="md:flex" v-for="project in projects" :key="project.title">
           <div class="md:flex-shrink-0">
             <a class="mt-1 font-medium leading-tight" :href="project.link">
-              <img :src="project.image" :alt="project.imageAlt" width="320" height="165" class="object-cover w-full rounded-lg shadow-sm md:w-60 border border-gray-200 dark:border-gray-700" />
+              <img
+                :src="project.image"
+                :alt="project.imageAlt"
+                width="320"
+                height="165"
+                class="object-cover w-full rounded-lg shadow-sm md:w-60 border border-gray-200 dark:border-gray-700"
+              />
             </a>
           </div>
           <div class="mt-8 md:mt-0 md:ml-8">
             <a class="mt-1 text-lg font-medium leading-tight" :href="project.link">{{ project.title }}</a>
-            <p class="mt-2 text-lg text-gray-600 dark:text-gray-400 leading-relaxed" v-html="project.description"></p>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="project.description"></p>
           </div>
         </li>
       </ul>
@@ -31,7 +37,7 @@ useHead({
 });
 
 onMounted(() => {
-  useWaveMultiplier().value = 1.5;
+  useWaveMultiplier().value = 2.5;
 });
 
 const projects = [
