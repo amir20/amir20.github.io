@@ -24,8 +24,7 @@ export function useNoise() {
       inset: 0;
       pointer-events: none;
       z-index: 9999;
-      mix-blend-mode: overlay;
-      opacity: 0.4;
+      opacity: 0.9;
     `;
     document.body.appendChild(overlay);
   }
