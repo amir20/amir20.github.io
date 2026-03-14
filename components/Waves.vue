@@ -14,12 +14,12 @@ const multiplier = useWaveMultiplier();
 
 // 6 wave layers: deep background → surface foreground
 const waveLayers = [
-  { colors: ["#0a2e4a", "#071e32"], blur: 10, opacity: 0.35, points: 6,  speed: 0.4,  heightOffset: 0.92, amplitude: 0.6  },
-  { colors: ["#0e3d5e", "#0b2d47"], blur: 7,  opacity: 0.4,  points: 7,  speed: 0.55, heightOffset: 0.88, amplitude: 0.7  },
-  { colors: ["#1a5276", "#135a6e"], blur: 5,  opacity: 0.45, points: 8,  speed: 0.7,  heightOffset: 0.84, amplitude: 0.8  },
-  { colors: ["#2179a0", "#1a6b8a"], blur: 3,  opacity: 0.5,  points: 9,  speed: 0.9,  heightOffset: 0.80, amplitude: 0.85 },
-  { colors: ["#3498b8", "#2980a0"], blur: 1,  opacity: 0.55, points: 10, speed: 1.1,  heightOffset: 0.76, amplitude: 0.9  },
-  { colors: ["#5dade2", "#48a0d4"], blur: 0,  opacity: 0.6,  points: 12, speed: 1.4,  heightOffset: 0.72, amplitude: 1.0  },
+  { colors: ["#0a2e4a", "#071e32"], blur: 10, opacity: 0.35, points: 6, speed: 0.4, heightOffset: 0.92, amplitude: 0.6 },
+  { colors: ["#0e3d5e", "#0b2d47"], blur: 7, opacity: 0.4, points: 7, speed: 0.55, heightOffset: 0.88, amplitude: 0.7 },
+  { colors: ["#1a5276", "#135a6e"], blur: 5, opacity: 0.45, points: 8, speed: 0.7, heightOffset: 0.84, amplitude: 0.8 },
+  { colors: ["#2179a0", "#1a6b8a"], blur: 3, opacity: 0.5, points: 9, speed: 0.9, heightOffset: 0.8, amplitude: 0.85 },
+  { colors: ["#3498b8", "#2980a0"], blur: 1, opacity: 0.55, points: 10, speed: 1.1, heightOffset: 0.76, amplitude: 0.9 },
+  { colors: ["#5dade2", "#48a0d4"], blur: 0, opacity: 0.6, points: 12, speed: 1.4, heightOffset: 0.72, amplitude: 1.0 },
 ];
 
 const root = ref(null);
@@ -44,8 +44,7 @@ function init() {
   h = window.innerHeight;
   effectiveW = Math.max(w, 1200);
   const overflow = (effectiveW - w) / 2;
-  vis.attr("width", effectiveW).attr("height", h)
-    .style("margin-left", `${-overflow}px`);
+  vis.attr("width", effectiveW).attr("height", h).style("margin-left", `${-overflow}px`);
 
   for (let i = 0; i < waveLayers.length; i++) {
     const layer = waveLayers[i];
@@ -116,23 +115,12 @@ onMounted(() => {
   for (let i = 0; i < waveLayers.length; i++) {
     const layer = waveLayers[i];
 
-    const grad = defs
-      .append("linearGradient")
-      .attr("id", `wave-grad-${i}`)
-      .attr("x1", "0%")
-      .attr("y1", "0%")
-      .attr("x2", "100%")
-      .attr("y2", "0%");
+    const grad = defs.append("linearGradient").attr("id", `wave-grad-${i}`).attr("x1", "0%").attr("y1", "0%").attr("x2", "100%").attr("y2", "0%");
 
     grad.append("stop").attr("offset", "0%").attr("stop-color", layer.colors[0]);
     grad.append("stop").attr("offset", "100%").attr("stop-color", layer.colors[1]);
 
-    const wave = vis
-      .append("path")
-      .attr("class", "wave")
-      .style("fill", `url(#wave-grad-${i})`)
-      .style("opacity", layer.opacity)
-      .style("will-change", "d");
+    const wave = vis.append("path").attr("class", "wave").style("fill", `url(#wave-grad-${i})`).style("opacity", layer.opacity).style("will-change", "d");
 
     if (layer.blur > 0) {
       wave.style("filter", `blur(${layer.blur}px)`);
@@ -163,7 +151,7 @@ onMounted(() => {
   window.addEventListener("mousemove", (e) => {
     mousePosition[0] = Math.min(e.clientX, 200) + 250;
     mousePosition[1] = Math.min(e.clientY, 300) + 600;
-    mouseHue = ((e.clientX / (w || 1)) - 0.5) * 20;
+    mouseHue = (e.clientX / (w || 1) - 0.5) * 20;
   });
 
   window.addEventListener("resize", () => {
@@ -184,7 +172,8 @@ div {
   view-transition-name: none;
   will-change: filter;
   transform: translateY(100%);
-  animation: slide-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards,
+  animation:
+    slide-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards,
     bob 6s ease-in-out 1.4s infinite;
 }
 
@@ -195,7 +184,8 @@ div {
 }
 
 @keyframes bob {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
