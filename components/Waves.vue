@@ -1,17 +1,16 @@
 <template>
-  <div>
-    <canvas ref="noiseCanvas" class="noise-overlay"></canvas>
-  </div>
+  <div ref="root"></div>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from "vue";
 import { select } from "d3-selection";
 import { line, curveBasis } from "d3-shape";
 import { timer } from "d3-timer";
 import { useWaveMultiplier } from "~/composables/useWaves";
 
-const d3 = Object.assign({}, { select, line, curveBasis, timer });
-const multipier = useWaveMultiplier();
+const d3 = { select, line, curveBasis, timer };
+const multiplier = useWaveMultiplier();
 
 // 6 wave layers: deep background → surface foreground
 const waveLayers = [
@@ -23,181 +22,154 @@ const waveLayers = [
   { colors: ["#5dade2", "#48a0d4"], blur: 0,  opacity: 0.6,  points: 12, speed: 1.4,  heightOffset: 0.72, amplitude: 1.0  },
 ];
 
-export default {
-  data() {
-    return {
-      vis: null,
-      mousePosition: [500, 700],
-      wavesCount: waveLayers.length,
-      waves: [],
-      highlights: [],
-      paths: [],
-      pathHeights: [],
-      seeds: [],
-      w: null,
-      h: null,
-      defs: null,
-      mouseHue: 0,
-      tidePhase: 0,
-    };
-  },
-  mounted() {
-    this.vis = d3.select(this.$el).append("svg").attr("pointer-events", "all");
-    this.defs = this.vis.append("defs");
+const root = ref(null);
 
-    for (let i = 0; i < this.wavesCount; i++) {
-      const layer = waveLayers[i];
+// Non-reactive mutable state (no need for reactivity on animation internals)
+let vis = null;
+let defs = null;
+const mousePosition = [500, 700];
+const waves = [];
+const highlights = [];
+const paths = [];
+const pathHeights = [];
+const seeds = [];
+let w = null;
+let h = null;
+let effectiveW = null;
+let mouseHue = 0;
+let tidePhase = 0;
 
-      const grad = this.defs
-        .append("linearGradient")
-        .attr("id", `wave-grad-${i}`)
-        .attr("x1", "0%")
-        .attr("y1", "0%")
-        .attr("x2", "100%")
-        .attr("y2", "0%");
+function init() {
+  w = window.innerWidth;
+  h = window.innerHeight;
+  effectiveW = Math.max(w, 1200);
+  const overflow = (effectiveW - w) / 2;
+  vis.attr("width", effectiveW).attr("height", h)
+    .style("margin-left", `${-overflow}px`);
 
-      grad.append("stop").attr("offset", "0%").attr("stop-color", layer.colors[0]);
-      grad.append("stop").attr("offset", "100%").attr("stop-color", layer.colors[1]);
+  for (let i = 0; i < waveLayers.length; i++) {
+    const layer = waveLayers[i];
+    const pathObj = paths[i];
+    const pts = layer.points;
 
-      const wave = this.vis
-        .append("path")
-        .attr("class", "wave")
-        .style("fill", `url(#wave-grad-${i})`)
-        .style("opacity", layer.opacity)
-        .style("will-change", "d");
+    pathObj.data[0] = [-200 * Math.random(), h];
+    for (let j = 0; j < pts; j++) {
+      pathObj.data[j + 1] = [(effectiveW / pts) * j, pathObj.data[j + 1]?.[1] || h / 4];
+    }
+    pathObj.data[pts + 1] = [effectiveW + Math.random() * 200, h];
+    pathHeights[i] = h / 2;
+  }
+}
 
-      if (layer.blur > 0) {
-        wave.style("filter", `blur(${layer.blur}px)`);
-      }
+function update(elapsed, height, wave, pathObj, seed, layer) {
+  const pts = pathObj.points;
+  const data = pathObj.data;
+  const speed = layer.speed;
+  const amp = layer.amplitude;
+  const shape = d3.line().curve(d3.curveBasis);
 
-      this.waves.push(wave);
+  const rise = Math.min((multiplier.value - 1) / 8, 1);
+  const baseY = h * (1 - (1 - layer.heightOffset) * rise);
 
-      // Add highlight stroke on the top 3 surface waves
-      if (i >= this.wavesCount - 3) {
-        const highlightOpacity = 0.08 + (i - (this.wavesCount - 3)) * 0.06;
-        const highlight = this.vis
-          .append("path")
-          .attr("class", "wave-highlight")
-          .style("fill", "none")
-          .style("stroke", `rgba(255, 255, 255, ${highlightOpacity})`)
-          .style("stroke-width", 1.5 - (this.wavesCount - 1 - i) * 0.3)
-          .style("will-change", "d");
-        this.highlights.push({ path: highlight, waveIndex: i });
-      }
+  for (let i = 1; i < pts + 1; i++) {
+    const t = ((seed / 2 + 0.2) * elapsed * speed) / 6 + (i + (i % 10)) * 100 + seed * 500;
 
-      // Each layer gets its own shape function with matching point count
-      this.paths.push({ points: layer.points, data: [] });
-      this.seeds.push(Math.random());
+    // Primary swell — slow, broad
+    const swell = Math.sin(t / 160) * Math.sin(t / 300) * amp;
+    // Secondary chop — medium frequency
+    const chop = Math.sin(t / 80 + i * 1.2) * 0.18 * amp;
+    // Surface ripple — fast, small (stronger on front waves)
+    const ripple = Math.sin(t / 35 + i * 2.5) * 0.07 * amp;
+
+    // Per-layer bob: each layer oscillates at its own rate
+    const layerBob = Math.sin(elapsed / (3000 + seed * 2000) + i * 0.3) * 6 * amp;
+    data[i][1] = (swell + chop + ripple) * height * 0.5 + baseY + tidePhase * (1 - amp * 0.3) + layerBob;
+  }
+
+  wave.attr("d", shape(data));
+}
+
+function step(elapsed) {
+  root.value.style.filter = `hue-rotate(${mouseHue}deg)`;
+
+  // Slow tide: gentle up/down over ~20 seconds
+  tidePhase = Math.sin(elapsed / 10000) * 15 + Math.sin(elapsed / 4000) * 8;
+
+  for (let i = 0; i < waveLayers.length; i++) {
+    const layer = waveLayers[i];
+    pathHeights[i] += (h / multiplier.value - (mousePosition[1] / 3 + mousePosition[0] / 3 + 200) - pathHeights[i]) / 10;
+    update(elapsed, pathHeights[i], waves[i], paths[i], seeds[i], layer);
+  }
+
+  // Update highlight strokes to follow their wave paths
+  for (const hl of highlights) {
+    const pathData = paths[hl.waveIndex].data;
+    const shape = d3.line().curve(d3.curveBasis);
+    hl.path.attr("d", shape(pathData));
+  }
+}
+
+onMounted(() => {
+  vis = d3.select(root.value).append("svg").attr("pointer-events", "all");
+  defs = vis.append("defs");
+
+  for (let i = 0; i < waveLayers.length; i++) {
+    const layer = waveLayers[i];
+
+    const grad = defs
+      .append("linearGradient")
+      .attr("id", `wave-grad-${i}`)
+      .attr("x1", "0%")
+      .attr("y1", "0%")
+      .attr("x2", "100%")
+      .attr("y2", "0%");
+
+    grad.append("stop").attr("offset", "0%").attr("stop-color", layer.colors[0]);
+    grad.append("stop").attr("offset", "100%").attr("stop-color", layer.colors[1]);
+
+    const wave = vis
+      .append("path")
+      .attr("class", "wave")
+      .style("fill", `url(#wave-grad-${i})`)
+      .style("opacity", layer.opacity)
+      .style("will-change", "d");
+
+    if (layer.blur > 0) {
+      wave.style("filter", `blur(${layer.blur}px)`);
     }
 
-    this.init();
-    this.generateNoise();
-    d3.timer(this.step);
+    waves.push(wave);
 
-    window.addEventListener("mousemove", (e) => {
-      this.mousePosition[0] = Math.min(e.clientX, 200) + 250;
-      this.mousePosition[1] = Math.min(e.clientY, 300) + 600;
-      this.mouseHue = ((e.clientX / (this.w || 1)) - 0.5) * 20;
-    });
+    // Add highlight stroke on the top 3 surface waves
+    if (i >= waveLayers.length - 3) {
+      const highlightOpacity = 0.08 + (i - (waveLayers.length - 3)) * 0.06;
+      const highlight = vis
+        .append("path")
+        .attr("class", "wave-highlight")
+        .style("fill", "none")
+        .style("stroke", `rgba(255, 255, 255, ${highlightOpacity})`)
+        .style("stroke-width", 1.5 - (waveLayers.length - 1 - i) * 0.3)
+        .style("will-change", "d");
+      highlights.push({ path: highlight, waveIndex: i });
+    }
 
-    window.addEventListener("resize", () => {
-      this.init();
-      this.generateNoise();
-    });
-  },
-  methods: {
-    generateNoise() {
-      const canvas = this.$refs.noiseCanvas;
-      if (!canvas) return;
-      canvas.width = this.w || window.innerWidth;
-      canvas.height = this.h || window.innerHeight;
-      const ctx = canvas.getContext("2d");
-      const imageData = ctx.createImageData(canvas.width, canvas.height);
-      const data = imageData.data;
-      for (let i = 0; i < data.length; i += 4) {
-        const v = Math.random() * 255;
-        data[i] = v;
-        data[i + 1] = v;
-        data[i + 2] = v;
-        data[i + 3] = 18;
-      }
-      ctx.putImageData(imageData, 0, 0);
-    },
-    init() {
-      this.w = window.innerWidth;
-      this.h = window.innerHeight;
-      // Use a minimum width so waves stay wide and smooth on narrow screens
-      this.effectiveW = Math.max(this.w, 1200);
-      const overflow = (this.effectiveW - this.w) / 2;
-      this.vis.attr("width", this.effectiveW).attr("height", this.h)
-        .style("margin-left", `${-overflow}px`);
+    paths.push({ points: layer.points, data: [] });
+    seeds.push(Math.random());
+  }
 
-      for (let i = 0; i < this.wavesCount; i++) {
-        const layer = waveLayers[i];
-        const pathObj = this.paths[i];
-        const pts = layer.points;
+  init();
+  d3.timer(step);
 
-        pathObj.data[0] = [-200 * Math.random(), this.h];
-        for (let j = 0; j < pts; j++) {
-          pathObj.data[j + 1] = [(this.effectiveW / pts) * j, pathObj.data[j + 1]?.[1] || this.h / 4];
-        }
-        pathObj.data[pts + 1] = [this.effectiveW + Math.random() * 200, this.h];
-        this.pathHeights[i] = this.h / 2;
-      }
-    },
-    step(elapsed) {
-      this.$el.style.filter = `hue-rotate(${this.mouseHue}deg)`;
+  window.addEventListener("mousemove", (e) => {
+    mousePosition[0] = Math.min(e.clientX, 200) + 250;
+    mousePosition[1] = Math.min(e.clientY, 300) + 600;
+    mouseHue = ((e.clientX / (w || 1)) - 0.5) * 20;
+  });
 
-      // Slow tide: gentle up/down over ~20 seconds
-      this.tidePhase = Math.sin(elapsed / 10000) * 15
-        + Math.sin(elapsed / 4000) * 8;
-
-      for (let i = 0; i < this.wavesCount; i++) {
-        const layer = waveLayers[i];
-        this.pathHeights[i] += (this.h / multipier.value - (this.mousePosition[1] / 3 + this.mousePosition[0] / 3 + 200) - this.pathHeights[i]) / 10;
-        this.update(elapsed, this.pathHeights[i], this.waves[i], this.paths[i], this.seeds[i], layer);
-      }
-
-      // Update highlight strokes to follow their wave paths
-      for (const hl of this.highlights) {
-        const pathData = this.paths[hl.waveIndex].data;
-        const shape = d3.line().curve(d3.curveBasis);
-        // Highlight follows just the top edge (exclude the bottom-anchored endpoints)
-        hl.path.attr("d", shape(pathData));
-      }
-    },
-    update(elapsed, height, wave, pathObj, seed, layer) {
-      const pts = pathObj.points;
-      const data = pathObj.data;
-      const speed = layer.speed;
-      const amp = layer.amplitude;
-      const shape = d3.line().curve(d3.curveBasis);
-
-      // Use the multiplier to shift the base position
-      // Higher multiplier = waves rise higher, lower = waves sink toward bottom
-      // multipier.value ranges from ~2 (about page) to ~9 (home page)
-      const rise = Math.min((multipier.value - 1) / 8, 1); // 0..1
-      const baseY = this.h * (1 - (1 - layer.heightOffset) * rise);
-
-      for (let i = 1; i < pts + 1; i++) {
-        const t = ((seed / 2 + 0.2) * elapsed * speed) / 6 + (i + (i % 10)) * 100 + seed * 500;
-
-        // Primary swell — slow, broad
-        const swell = Math.sin(t / 160) * Math.sin(t / 300) * amp;
-        // Secondary chop — medium frequency
-        const chop = Math.sin(t / 80 + i * 1.2) * 0.18 * amp;
-        // Surface ripple — fast, small (stronger on front waves)
-        const ripple = Math.sin(t / 35 + i * 2.5) * 0.07 * amp;
-
-        // Per-layer bob: each layer oscillates at its own rate
-        const layerBob = Math.sin(elapsed / (3000 + seed * 2000) + i * 0.3) * 6 * amp;
-        data[i][1] = (swell + chop + ripple) * height * 0.5 + baseY + this.tidePhase * (1 - amp * 0.3) + layerBob;
-      }
-
-      wave.attr("d", shape(data));
-    },
-  },
-};
+  window.addEventListener("resize", () => {
+    init();
+  });
+});
 </script>
 
 <style scoped>
@@ -212,17 +184,5 @@ div {
   view-transition-name: waves;
   will-change: filter;
   transform: translateZ(0);
-}
-
-.noise-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 2;
-  mix-blend-mode: overlay;
-  opacity: 0.4;
 }
 </style>
