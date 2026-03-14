@@ -149,7 +149,8 @@ export default {
       this.$el.style.filter = `hue-rotate(${this.mouseHue}deg)`;
 
       // Slow tide: gentle up/down over ~20 seconds
-      this.tidePhase = Math.sin(elapsed / 10000) * 15;
+      this.tidePhase = Math.sin(elapsed / 10000) * 15
+        + Math.sin(elapsed / 4000) * 8;
 
       for (let i = 0; i < this.wavesCount; i++) {
         const layer = waveLayers[i];
@@ -188,7 +189,9 @@ export default {
         // Surface ripple — fast, small (stronger on front waves)
         const ripple = Math.sin(t / 35 + i * 2.5) * 0.07 * amp;
 
-        data[i][1] = (swell + chop + ripple) * height * 0.5 + baseY + this.tidePhase * (1 - amp * 0.3);
+        // Per-layer bob: each layer oscillates at its own rate
+        const layerBob = Math.sin(elapsed / (3000 + seed * 2000) + i * 0.3) * 6 * amp;
+        data[i][1] = (swell + chop + ripple) * height * 0.5 + baseY + this.tidePhase * (1 - amp * 0.3) + layerBob;
       }
 
       wave.attr("d", shape(data));
