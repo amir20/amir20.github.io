@@ -19,9 +19,11 @@
 import { onMounted } from "vue";
 import Logo from "~/assets/images/ar.svg";
 import { useNoise } from "~/composables/useNoise";
+import { useRaindrops } from "~/composables/useRaindrops";
 
 onMounted(() => {
   useNoise();
+  useRaindrops();
 });
 
 const menu = [
