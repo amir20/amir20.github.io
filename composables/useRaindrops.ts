@@ -15,7 +15,7 @@ function createDrop(width: number, startY?: number): Drop {
     radius: 4 + Math.random() * 6,
     speed: 0.5 + Math.random() * 1.5,
     drift: (Math.random() - 0.5) * 0.3,
-    opacity: 0.3 + Math.random() * 0.4,
+    opacity: 0.4 + Math.random() * 0.4,
     trail: [],
   };
 }
@@ -34,7 +34,7 @@ export function useRaindrops() {
     inset: 0;
     pointer-events: none;
     z-index: 9998;
-    mix-blend-mode: overlay;
+    mix-blend-mode: screen;
   `;
   document.body.appendChild(canvas);
 
@@ -67,7 +67,7 @@ export function useRaindrops() {
 
       ctx.beginPath();
       ctx.arc(t.x, t.y, trailRadius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${t.opacity * 0.3})`;
+      ctx.fillStyle = `rgba(200, 220, 255, ${t.opacity * 0.3})`;
       ctx.fill();
     }
 
@@ -80,9 +80,9 @@ export function useRaindrops() {
       drop.y,
       drop.radius,
     );
-    grad.addColorStop(0, `rgba(255, 255, 255, ${drop.opacity * 0.9})`);
-    grad.addColorStop(0.5, `rgba(255, 255, 255, ${drop.opacity * 0.4})`);
-    grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
+    grad.addColorStop(0, `rgba(200, 220, 255, ${drop.opacity * 0.9})`);
+    grad.addColorStop(0.5, `rgba(180, 200, 240, ${drop.opacity * 0.4})`);
+    grad.addColorStop(1, `rgba(180, 200, 240, 0)`);
 
     ctx.beginPath();
     ctx.arc(drop.x, drop.y, drop.radius, 0, Math.PI * 2);
@@ -92,7 +92,7 @@ export function useRaindrops() {
     // Small bright highlight
     ctx.beginPath();
     ctx.arc(drop.x - drop.radius * 0.25, drop.y - drop.radius * 0.25, drop.radius * 0.25, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255, 255, 255, ${drop.opacity})`;
+    ctx.fillStyle = `rgba(220, 235, 255, ${drop.opacity})`;
     ctx.fill();
   }
 
@@ -109,8 +109,10 @@ export function useRaindrops() {
         drop.trail[i].opacity *= 0.92;
       }
 
-      // Move drop
-      drop.y += drop.speed;
+      // Move drop with wobble for natural look
+      drop.y += drop.speed + (Math.random() - 0.5) * 0.4;
+      drop.drift += (Math.random() - 0.5) * 0.15;
+      drop.drift *= 0.95; // dampen drift so it doesn't run away
       drop.x += drop.drift;
 
       // Respawn if off screen
