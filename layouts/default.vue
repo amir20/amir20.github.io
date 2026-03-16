@@ -7,7 +7,8 @@
         :to="item.path"
         v-for="item in menu"
         :key="item.path"
-      >{{ item.title }}</NuxtLink>
+        >{{ item.title }}</NuxtLink
+      >
     </nav>
     <main class="flex items-center flex-1 p-4 md:p-8">
       <slot />
@@ -23,7 +24,7 @@ import { useRaindrops } from "~/composables/useRaindrops";
 
 onMounted(() => {
   useNoise();
-  useRaindrops();
+  // useRaindrops();
 });
 
 const menu = [
