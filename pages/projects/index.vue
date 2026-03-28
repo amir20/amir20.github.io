@@ -5,18 +5,28 @@
       <ul class="space-y-10 text-lg">
         <li class="md:flex" v-for="project in projects" :key="project.title">
           <div class="md:flex-shrink-0">
-            <a class="mt-1 font-medium leading-tight" :href="project.link">
+            <NuxtLink class="mt-1 font-medium leading-tight" :to="project.link">
               <img
+                v-if="project.image"
                 :src="project.image"
                 :alt="project.imageAlt"
                 width="320"
                 height="165"
                 class="object-cover w-full rounded-lg shadow-sm md:w-60 border border-gray-200 dark:border-gray-700"
               />
-            </a>
+              <video
+                v-else-if="project.video"
+                :src="project.video"
+                autoplay
+                loop
+                muted
+                playsinline
+                class="object-cover w-full rounded-lg shadow-sm md:w-60 border border-gray-200 dark:border-gray-700"
+              />
+            </NuxtLink>
           </div>
           <div class="mt-8 md:mt-0 md:ml-8">
-            <a class="mt-1 text-lg font-medium leading-tight" :href="project.link">{{ project.title }}</a>
+            <NuxtLink class="mt-1 text-lg font-medium leading-tight" :to="project.link">{{ project.title }}</NuxtLink>
             <p class="mt-2 text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="project.description"></p>
           </div>
         </li>
@@ -41,6 +51,13 @@ onMounted(() => {
 });
 
 const projects = [
+  {
+    title: "Gruper",
+    link: "/projects/gruper",
+    video: "/gruper.mp4",
+    imageAlt: "Gruper demo",
+    description: `Gruper is a browser extension that automatically groups your open tabs using AI. It intelligently organizes your tabs so you can focus on what matters.`,
+  },
   {
     title: "Dozzle for Docker",
     link: "https://dozzle.dev/",

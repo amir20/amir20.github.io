@@ -3,7 +3,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ["/", "/about", "/projects"],
+      routes: ["/", "/about", "/projects", "/projects/gruper"],
     },
   },
 
