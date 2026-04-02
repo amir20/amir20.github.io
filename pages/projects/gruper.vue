@@ -21,6 +21,10 @@
     </div>
 
     <div class="mt-10 flex gap-4">
+      <GlassButton href="https://chromewebstore.google.com/detail/gruper/pebogmmlgobamgmpnjmheeafnmbampbh?authuser=0&hl=en">
+        <span class="i-ph-google-chrome-logo mr-2 text-lg" />
+        Chrome Web Store
+      </GlassButton>
       <GlassButton href="https://github.com/amir20/gruper">
         <span class="i-ph-github-logo mr-2 text-lg" />
         View on GitHub
