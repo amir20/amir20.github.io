@@ -17,12 +17,7 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 import Logo from "~/assets/images/ar.svg";
-import { useNoise } from "~/composables/useNoise";
-onMounted(() => {
-  useNoise();
-});
 
 const menu = [
   { title: "Home", path: "/" },

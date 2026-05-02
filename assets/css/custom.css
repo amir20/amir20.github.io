@@ -35,6 +35,19 @@ h6 {
   }
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("/noise.png");
+  background-repeat: repeat;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  view-transition-name: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
