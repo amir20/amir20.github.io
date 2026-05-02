@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun install:*)",
+      "Bash(bun pm:*)",
+      "Bash(bun run:*)",
+      "Bash(grep -r \"button\" /Users/amirraminfar/Workspace/amir20.github.io --include=\"*.css\" --include=\"*.ts\" --include=\"*.vue\" 2>/dev/null | head -30)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(grep:*)",
+      "Bash(pnpm build:*)",
+      "WebFetch(domain:codesandbox.io)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:n8rzsx.csb.app)",
+      "Bash(curl:*)",
+      "Bash(npx -y prettier --parser babel)",
+      "Bash(git revert:*)",
+      "Bash(gh repo:*)"
+    ]
+  }
+}
