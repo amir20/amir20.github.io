@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   },
 
   experimental: {
-    viewTransition: false,
+    viewTransition: true,
   },
 
   googleFonts: {

@@ -1,7 +1,6 @@
 <template>
   <ClientOnly>
-    <!-- <Waves /> -->
-    <!-- <RainDrops /> -->
+    <Waves />
   </ClientOnly>
   <NuxtLayout>
     <NuxtPage />
