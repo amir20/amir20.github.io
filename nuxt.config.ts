@@ -18,7 +18,10 @@ export default defineNuxtConfig({
         class:
           "text-gray-700 transition-colors bg-cream dark:bg-gray-900 dark:text-gray-300",
       },
-      link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+        { rel: "preload", as: "image", href: "/noise.png", fetchpriority: "low" },
+      ],
     },
   },
 
