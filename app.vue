@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <Waves />
+    <!-- <Waves /> -->
     <RainDrops />
   </ClientOnly>
   <NuxtLayout>
