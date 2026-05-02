@@ -1,9 +1,9 @@
 <template>
   <div class="w-auto md:w-4/5 lg:w-2/3">
-    <h1 class="mb-6 text-5xl md:text-6xl leading-tight" style="view-transition-name: title">Projects</h1>
+    <h1 class="mb-6 page-title" style="view-transition-name: title">Projects</h1>
     <div>
       <ul class="space-y-10 text-lg">
-        <li class="md:flex" v-for="project in projects" :key="project.title">
+        <li class="md:flex" v-for="(project, i) in projects" :key="project.title">
           <div class="md:flex-shrink-0">
             <NuxtLink class="mt-1 font-medium leading-tight" :to="project.link">
               <img
@@ -12,6 +12,8 @@
                 :alt="project.imageAlt"
                 width="320"
                 height="165"
+                :loading="i === 0 ? 'eager' : 'lazy'"
+                decoding="async"
                 class="object-cover w-full rounded-lg shadow-sm md:w-60 border border-gray-200 dark:border-gray-700"
               />
               <video
@@ -21,12 +23,13 @@
                 loop
                 muted
                 playsinline
+                preload="metadata"
                 class="object-cover w-full rounded-lg shadow-sm md:w-60 border border-gray-200 dark:border-gray-700"
               />
             </NuxtLink>
           </div>
-          <div class="mt-8 md:mt-0 md:ml-8">
-            <NuxtLink class="mt-1 text-lg font-medium leading-tight" :to="project.link">{{ project.title }}</NuxtLink>
+          <div class="mt-6 md:mt-0 md:ml-8">
+            <NuxtLink class="text-lg font-medium leading-tight" :to="project.link">{{ project.title }}</NuxtLink>
             <p class="mt-2 text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="project.description"></p>
           </div>
         </li>
@@ -52,41 +55,39 @@ onMounted(() => {
 
 const projects = [
   {
-    title: "Gruper",
-    link: "/projects/gruper",
-    video: "/gruper.mp4",
-    imageAlt: "Gruper demo",
-    description: `Gruper is a browser extension that automatically groups your open tabs using AI. It intelligently organizes your tabs so you can focus on what matters.`,
-  },
-  {
-    title: "Dozzle for Docker",
-    link: "https://dozzle.dev/",
+    title: "Dozzle",
+    link: "/projects/dozzle",
     image: dozzle,
     imageAlt: "Dozzle screenshot",
-    description: `Dozzle is a web application that provides an interface to monitor your
-        <a href="https://www.docker.com/">Docker</a> containers and logs. It supports multiple hosts, Docker Swarm and Kubernetes.`,
+    description: `A lightweight web UI for tailing <a href="https://www.docker.com/">Docker</a> logs in real time, across hosts, Swarm, and Kubernetes. Dozzle Cloud adds AI summaries, smart alerts, and a chat agent on top of self-hosted instances.`,
   },
   {
     title: "dtop",
     link: "https://dtop.dev/",
     image: dtop,
     imageAlt: "dtop screenshot",
-    description: `dtop is a TUI application for monitoring Docker containers across multiple hosts with real-time CPU, memory, and network metrics. Built with Rust which uses minimal dependencies and is highly performant.`,
+    description: `A terminal UI for watching Docker containers across hosts: CPU, memory, network, all live. Written in Rust with very few dependencies.`,
   },
   {
-    title: "PhantomJS integration for NodeJS",
+    title: "Gruper",
+    link: "/projects/gruper",
+    video: "/gruper.mp4",
+    imageAlt: "Gruper demo",
+    description: `A browser extension that groups your open tabs with AI, so you stop drowning in 60-tab sessions.`,
+  },
+  {
+    title: "PhantomJS for Node.js",
     link: "https://github.com/amir20/phantomjs-node",
     image: phantom,
     imageAlt: "Phantom screenshot",
-    description: `Phantom is a module for integrating <a href="https://phantomjs.org/">PhantomJs</a> with Node. This project is no longer maintained because
-        PhantomJs has been deprecated.`,
+    description: `A bridge between Node and <a href="https://phantomjs.org/">PhantomJS</a>. Archived; PhantomJS itself is no longer maintained.`,
   },
   {
     title: "Clashleaders.com",
     link: "https://www.clashleaders.com/",
     image: clashleaders,
     imageAlt: "Clashleaders screenshot",
-    description: `Clashleaders was a website for the <a href="https://supercell.com/en/games/clashofclans/">Clash of Clans</a> game, created to help players track their progress and compete. However, it became too time-consuming to maintain, so I decided to shut it down and focus on other projects.`,
+    description: `A stats and leaderboard site for <a href="https://supercell.com/en/games/clashofclans/">Clash of Clans</a> players. I ran it for years before retiring it to free up time.`,
   },
 ];
 </script>

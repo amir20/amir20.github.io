@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-02T00:00:00Z",
+  "title": "Design System: AmirRaminfar.me",
+  "extensions": {
+    "colorMeta": {
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream",
+        "canonical": "oklch(96.5% 0.008 80)",
+        "tonalRamp": [
+          "oklch(20% 0.008 80)",
+          "oklch(32% 0.008 80)",
+          "oklch(44% 0.008 80)",
+          "oklch(56% 0.008 80)",
+          "oklch(68% 0.008 80)",
+          "oklch(80% 0.008 80)",
+          "oklch(89% 0.008 80)",
+          "oklch(96.5% 0.008 80)"
+        ]
+      },
+      "ink-deep": {
+        "role": "neutral",
+        "displayName": "Ink Deep",
+        "canonical": "oklch(20% 0.005 60)",
+        "tonalRamp": [
+          "oklch(15% 0.005 60)",
+          "oklch(20% 0.005 60)",
+          "oklch(30% 0.005 60)",
+          "oklch(42% 0.005 60)",
+          "oklch(55% 0.005 60)",
+          "oklch(70% 0.005 60)",
+          "oklch(84% 0.005 60)",
+          "oklch(94% 0.005 60)"
+        ]
+      },
+      "ink-cream": {
+        "role": "neutral",
+        "displayName": "Ink Cream",
+        "canonical": "oklch(94% 0.008 80)",
+        "tonalRamp": [
+          "oklch(20% 0.008 80)",
+          "oklch(32% 0.008 80)",
+          "oklch(44% 0.008 80)",
+          "oklch(56% 0.008 80)",
+          "oklch(68% 0.008 80)",
+          "oklch(80% 0.008 80)",
+          "oklch(88% 0.008 80)",
+          "oklch(94% 0.008 80)"
+        ]
+      },
+      "body-light": {
+        "role": "neutral",
+        "displayName": "Body Light",
+        "canonical": "oklch(38% 0.012 260)",
+        "tonalRamp": [
+          "oklch(15% 0.012 260)",
+          "oklch(25% 0.012 260)",
+          "oklch(38% 0.012 260)",
+          "oklch(50% 0.012 260)",
+          "oklch(62% 0.012 260)",
+          "oklch(74% 0.012 260)",
+          "oklch(86% 0.012 260)",
+          "oklch(96% 0.012 260)"
+        ]
+      },
+      "body-dark": {
+        "role": "neutral",
+        "displayName": "Body Dark",
+        "canonical": "oklch(86% 0.008 260)",
+        "tonalRamp": [
+          "oklch(20% 0.008 260)",
+          "oklch(32% 0.008 260)",
+          "oklch(44% 0.008 260)",
+          "oklch(56% 0.008 260)",
+          "oklch(66% 0.008 260)",
+          "oklch(76% 0.008 260)",
+          "oklch(86% 0.008 260)",
+          "oklch(95% 0.008 260)"
+        ]
+      },
+      "surface-night": {
+        "role": "neutral",
+        "displayName": "Surface Night",
+        "canonical": "oklch(20% 0.015 270)",
+        "tonalRamp": [
+          "oklch(12% 0.015 270)",
+          "oklch(20% 0.015 270)",
+          "oklch(30% 0.015 270)",
+          "oklch(42% 0.015 270)",
+          "oklch(55% 0.015 270)",
+          "oklch(68% 0.015 270)",
+          "oklch(82% 0.015 270)",
+          "oklch(94% 0.015 270)"
+        ]
+      },
+      "ember-brown": {
+        "role": "primary",
+        "displayName": "Ember Brown",
+        "canonical": "oklch(54% 0.14 35)",
+        "tonalRamp": [
+          "oklch(22% 0.06 35)",
+          "oklch(32% 0.09 35)",
+          "oklch(42% 0.12 35)",
+          "oklch(54% 0.14 35)",
+          "oklch(66% 0.13 35)",
+          "oklch(78% 0.10 35)",
+          "oklch(88% 0.06 35)",
+          "oklch(96% 0.02 35)"
+        ]
+      },
+      "ember-brown-deep": {
+        "role": "primary",
+        "displayName": "Ember Brown Deep",
+        "canonical": "oklch(45% 0.13 35)",
+        "tonalRamp": [
+          "oklch(20% 0.06 35)",
+          "oklch(30% 0.09 35)",
+          "oklch(38% 0.12 35)",
+          "oklch(45% 0.13 35)",
+          "oklch(58% 0.13 35)",
+          "oklch(72% 0.10 35)",
+          "oklch(85% 0.06 35)",
+          "oklch(95% 0.02 35)"
+        ]
+      },
+      "warm-gold": {
+        "role": "primary",
+        "displayName": "Warm Gold",
+        "canonical": "oklch(76% 0.09 65)",
+        "tonalRamp": [
+          "oklch(28% 0.05 65)",
+          "oklch(40% 0.07 65)",
+          "oklch(52% 0.09 65)",
+          "oklch(64% 0.10 65)",
+          "oklch(76% 0.09 65)",
+          "oklch(85% 0.07 65)",
+          "oklch(92% 0.04 65)",
+          "oklch(97% 0.015 65)"
+        ]
+      },
+      "warm-gold-bright": {
+        "role": "primary",
+        "displayName": "Warm Gold Bright",
+        "canonical": "oklch(83% 0.08 65)",
+        "tonalRamp": [
+          "oklch(30% 0.05 65)",
+          "oklch(42% 0.07 65)",
+          "oklch(54% 0.09 65)",
+          "oklch(66% 0.09 65)",
+          "oklch(78% 0.08 65)",
+          "oklch(83% 0.08 65)",
+          "oklch(91% 0.05 65)",
+          "oklch(97% 0.02 65)"
+        ]
+      },
+      "tide-deep": {
+        "role": "tertiary",
+        "displayName": "Tide Deep",
+        "canonical": "oklch(22% 0.04 240)",
+        "tonalRamp": [
+          "oklch(14% 0.03 240)",
+          "oklch(22% 0.04 240)",
+          "oklch(32% 0.06 240)",
+          "oklch(42% 0.08 240)",
+          "oklch(54% 0.09 235)",
+          "oklch(66% 0.10 230)",
+          "oklch(78% 0.09 225)",
+          "oklch(90% 0.05 225)"
+        ]
+      },
+      "tide-shore": {
+        "role": "tertiary",
+        "displayName": "Tide Shore",
+        "canonical": "oklch(74% 0.10 230)",
+        "tonalRamp": [
+          "oklch(20% 0.04 240)",
+          "oklch(32% 0.06 235)",
+          "oklch(44% 0.08 232)",
+          "oklch(56% 0.09 230)",
+          "oklch(66% 0.10 230)",
+          "oklch(74% 0.10 230)",
+          "oklch(84% 0.07 228)",
+          "oklch(94% 0.03 225)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The single page title per route. Always carries view-transition-name: title."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraph copy. Hold to ~66ch by constraining the column width."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase nav links and small navigational chrome. The only place small caps appear."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glass-rest",
+        "value": "0 1px 3px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6)",
+        "purpose": "GlassButton at rest in light mode."
+      },
+      {
+        "name": "glass-hover",
+        "value": "0 4px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.8)",
+        "purpose": "GlassButton on hover, paired with translateY(-1px)."
+      },
+      {
+        "name": "glass-rest-dark",
+        "value": "0 1px 3px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.06)",
+        "purpose": "GlassButton at rest in dark mode."
+      },
+      {
+        "name": "thumb-rest",
+        "value": "0 1px 2px rgba(0,0,0,0.05)",
+        "purpose": "Project thumbnail. The only non-glass shadow in the system."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-glass",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Ease-out-quart for GlassButton hover lift; matches the calm tide cadence."
+      },
+      {
+        "name": "duration-state",
+        "value": "300ms",
+        "purpose": "GlassButton state transitions. Long enough to feel deliberate, short enough to feel responsive."
+      },
+      {
+        "name": "view-transition-default",
+        "value": "browser default",
+        "purpose": "Used by view-transition-name on title, nav, and selected route underline."
+      }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Glass Button (Light)",
+      "kind": "button",
+      "refersTo": "button-glass",
+      "description": "External-link button. Translucent over the live tide; lifts on hover.",
+      "html": "<a href=\"#\" class=\"ds-glass-btn\"><svg class=\"ds-glass-btn__icon\" viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M208.31 75.68A59.78 59.78 0 0 0 202.93 28a8 8 0 0 0-7.41-4a59.93 59.93 0 0 0-48 24h-25a59.93 59.93 0 0 0-48-24a8 8 0 0 0-7.41 4a59.78 59.78 0 0 0-5.38 47.68A58.14 58.14 0 0 0 56 104v8a56.06 56.06 0 0 0 48.44 55.47A39.8 39.8 0 0 0 96 192v8H72a24 24 0 0 1-24-24a40 40 0 0 0-40-40a8 8 0 0 0 0 16a24 24 0 0 1 24 24a40 40 0 0 0 40 40h24v16a8 8 0 0 0 16 0v-40a24 24 0 0 1 48 0v40a8 8 0 0 0 16 0v-40a39.8 39.8 0 0 0-8.44-24.53A56.06 56.06 0 0 0 216 112v-8a58.14 58.14 0 0 0-7.69-28.32Z\"/></svg><span>GitHub</span></a>",
+      "css": ".ds-glass-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 12px; font: 500 14px/1 'Roboto', system-ui, sans-serif; letter-spacing: 0.02em; color: #374151; text-decoration: none; background: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6); transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-glass-btn__icon { width: 18px; height: 18px; } .ds-glass-btn:hover { background: rgba(255,255,255,0.65); border-color: rgba(255,255,255,0.7); color: #1a3f47; box-shadow: 0 4px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.8); transform: translateY(-1px); } .ds-glass-btn:active { transform: translateY(0); background: rgba(255,255,255,0.5); }"
+    },
+    {
+      "name": "Glass Button (Dark)",
+      "kind": "button",
+      "refersTo": "button-glass-dark",
+      "description": "Dark-mode variant of the external-link button.",
+      "html": "<a href=\"#\" class=\"ds-glass-btn-dark\"><svg class=\"ds-glass-btn-dark__icon\" viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M216 24H40a16 16 0 0 0-16 16v176a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V40a16 16 0 0 0-16-16ZM96 176a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Zm-8-88a12 12 0 1 1 12-12a12 12 0 0 1-12 12Zm96 88a8 8 0 0 1-16 0v-36a20 20 0 0 0-40 0v36a8 8 0 0 1-16 0v-64a8 8 0 0 1 15.79-1.78A36 36 0 0 1 184 140Z\"/></svg><span>LinkedIn</span></a>",
+      "css": ".ds-glass-btn-dark { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 12px; font: 500 14px/1 'Roboto', system-ui, sans-serif; letter-spacing: 0.02em; color: #d1d5db; text-decoration: none; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.06); transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-glass-btn-dark__icon { width: 18px; height: 18px; } .ds-glass-btn-dark:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.20); color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.10); transform: translateY(-1px); } .ds-glass-btn-dark:active { transform: translateY(0); background: rgba(255,255,255,0.10); }"
+    },
+    {
+      "name": "Nav Link (Active)",
+      "kind": "nav",
+      "refersTo": "nav-link-active",
+      "description": "Top nav link in its active-route state. The 2px underline carries view-transition-name: selected and slides between routes.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__link\" href=\"#\">Home</a><a class=\"ds-nav__link is-active\" href=\"#\">About Me</a><a class=\"ds-nav__link\" href=\"#\">Projects</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 20px; padding: 4px 0; } .ds-nav__link { position: relative; padding: 8px; font: 500 14px/1 'Roboto', system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280; text-decoration: none; transition: color 200ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-nav__link:hover { color: #1a1a1a; } .ds-nav__link.is-active { color: #1a1a1a; } .ds-nav__link.is-active::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #b8513d; }"
+    },
+    {
+      "name": "Display Heading",
+      "kind": "custom",
+      "refersTo": "typography.display",
+      "description": "The single page title per route. Playfair Display with optical sizing and tight tracking.",
+      "html": "<h1 class=\"ds-display\">Hi there, my name is Amir.</h1>",
+      "css": ".ds-display { font-family: 'Playfair Display', Georgia, serif; font-optical-sizing: auto; font-weight: 500; font-size: clamp(2.75rem, 6vw, 3.75rem); line-height: 1.1; letter-spacing: -0.02em; color: #1a1a1a; margin: 0 0 24px 0; }"
+    },
+    {
+      "name": "Body Paragraph with Inline Link",
+      "kind": "custom",
+      "refersTo": "link-inline",
+      "description": "Body text with the warm inline link treatment. Underlined with a 40% gold decoration tint.",
+      "html": "<p class=\"ds-body\">I am a software engineer, mentor and parent in San Francisco. Currently an engineering manager at <a class=\"ds-body__link\" href=\"#\">Netflix</a>.</p>",
+      "css": ".ds-body { font-family: 'Roboto', system-ui, sans-serif; font-weight: 400; font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.01em; color: #374151; max-width: 66ch; margin: 0; } .ds-body__link { color: #b8513d; text-decoration: underline; text-decoration-color: rgba(212, 168, 124, 0.4); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color 200ms ease; } .ds-body__link:hover { color: #943f2f; }"
+    },
+    {
+      "name": "Project Item",
+      "kind": "card",
+      "refersTo": "project-thumb",
+      "description": "A row in the projects list. Image left, text right; intentionally not a card.",
+      "html": "<article class=\"ds-project\"><a class=\"ds-project__media\" href=\"#\"><div class=\"ds-project__thumb\" aria-hidden=\"true\"></div></a><div class=\"ds-project__body\"><a class=\"ds-project__title\" href=\"#\">Dozzle for Docker</a><p class=\"ds-project__desc\">A web application that provides an interface to monitor your Docker containers and logs across multiple hosts, Docker Swarm, and Kubernetes.</p></div></article>",
+      "css": ".ds-project { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; } @media (min-width: 768px) { .ds-project { flex-direction: row; gap: 32px; } } .ds-project__media { flex-shrink: 0; } .ds-project__thumb { width: 240px; height: 132px; border-radius: 16px; border: 1px solid #e5e7eb; box-shadow: 0 1px 2px rgba(0,0,0,0.05); background: linear-gradient(135deg, oklch(54% 0.09 230) 0%, oklch(22% 0.04 240) 100%); } .ds-project__title { display: block; font-family: 'Roboto', system-ui, sans-serif; font-size: 1.125rem; font-weight: 500; color: #1a1a1a; text-decoration: none; margin-bottom: 8px; } .ds-project__desc { font-family: 'Roboto', system-ui, sans-serif; font-size: 1.125rem; line-height: 1.7; color: #374151; margin: 0; max-width: 60ch; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Coastal Atelier",
+    "overview": "The site is an engineer's workshop with the ocean visible through the window. Warm cream paper, hand-set serif headlines, and a working tide that reacts to where you point. Every signature element is built, not bought: a six-layer animated D3 wave system, ambient raindrops, view-transitioned title morphs between pages. The interface is the proof of taste. Adjectives are not needed.\n\nDensity is calm. One column of generous text on cream paper, with a single anchored signature: the tide along the bottom. The page makes room for the work, not the other way around. This is not a SaaS landing, not a dev terminal, not a LinkedIn profile in HTML; it is closer to a small magazine cover that animates when nobody is reading it.\n\nThe system explicitly rejects the dev-portfolio category reflex: no neon-on-black, no monospace headers, no \"$ whoami\", no hero metrics, no identical card grids. When dark mode appears, it stays warm-tinted toward gold, never blue-black.",
+    "keyCharacteristics": [
+      "Warm cream surface (#f5f3ee) with optical-sized serif display type",
+      "A living, mouse-reactive tide animation as the persistent background signature",
+      "Two warm accents only: ember brown in light mode, warm gold in dark mode",
+      "Generous vertical air, narrow text column (≤66ch), no card-grid filler",
+      "View transitions on the title and nav between routes"
+    ],
+    "rules": [
+      { "name": "The Two Warms Rule", "body": "Light mode uses Ember Brown for accent; dark mode uses Warm Gold. They are not interchangeable across modes. A brown link in dark mode looks like a bug; a gold link in light mode looks like a sticker.", "section": "colors" },
+      { "name": "The Tide Stays in the Tide", "body": "The blue-teal range is the property of Waves.vue. Nothing else on the page is allowed to borrow from it: not a button, not a focus ring, not a tag. The tide reads as scene because nothing else is wearing its colors.", "section": "colors" },
+      { "name": "The No-Pure-Black Rule", "body": "#000 and #fff are forbidden. Surface and ink are always tinted toward cream.", "section": "colors" },
+      { "name": "The One Title Rule", "body": "Each route has exactly one display heading and it owns view-transition-name: title. Subheads use body weight at body size, not a stepped-down display.", "section": "typography" },
+      { "name": "The Optical Sizing Rule", "body": "Playfair must declare font-optical-sizing: auto. The font has a real opsz axis and the difference at hero size is visible.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat. The only earned shadows in this system live on the glass buttons and on project thumbnails. No decorative elevation anywhere else.", "section": "elevation" },
+      { "name": "The One Glass Rule", "body": "backdrop-filter is allowed in exactly one place: GlassButton.vue. Adding glass to a card, a nav, or a panel breaks the rule.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the tide visible on every page. It is the brand.",
+      "Do use Ember Brown in light mode and Warm Gold in dark mode, and only those two, for accents.",
+      "Do hold body text columns to md:w-3/4 lg:w-1/2 (≈66ch) on prose-heavy pages.",
+      "Do declare font-optical-sizing: auto wherever Playfair Display appears.",
+      "Do use view-transition-name for elements that persist across routes (title, nav, active underline).",
+      "Do prefer flat, bordered, list-shaped layouts over cards. Project list and About page are the templates.",
+      "Do use clamp() for display sizes so headings scale fluidly rather than stepping at breakpoints."
+    ],
+    "donts": [
+      "Don't drift into the standard dev-portfolio aesthetic: no monospace headers, no blinking terminal cursor, no neon-on-black, no $ whoami.",
+      "Don't drift into the FAANG-manager LinkedIn look: no stock photos, no badge logos, no \"passionate leader\" copy, no work-not-shown.",
+      "Don't ship glassy SaaS landing patterns: no hero metrics, no identical card grids, no gradient text.",
+      "Don't add a blog section unless there is something genuinely worth reading.",
+      "Don't use #000 or #fff anywhere. Tint to cream.",
+      "Don't use the tide's blue-teal range outside Waves.vue. Not as a button, not as a focus ring, not as a tag.",
+      "Don't use Ember Brown in dark mode or Warm Gold in light mode. The two warms are mode-bound.",
+      "Don't add backdrop-filter to anything other than GlassButton.",
+      "Don't wrap content in cards by reflex. The site is list-shaped, not tile-shaped.",
+      "Don't use side-stripe borders, gradient text, or modals as the first reach for an interaction.",
+      "Don't use em dashes in body copy. Commas, colons, semicolons, periods, parentheses.",
+      "Don't add a second display headline to a page. One title per route."
+    ]
+  }
+}

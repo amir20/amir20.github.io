@@ -3,7 +3,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ["/", "/about", "/projects", "/projects/gruper"],
+      routes: ["/", "/about", "/projects", "/projects/gruper", "/projects/dozzle"],
     },
   },
 
@@ -28,8 +28,8 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      "Playfair Display": { wght: "400..900", ital: "400..900" },
-      Roboto: [100, 300, 400, 500, 700, 900],
+      "Playfair Display": [400, 500, 600, 700],
+      Roboto: [400, 500, 700],
     },
     download: true,
     display: "swap",

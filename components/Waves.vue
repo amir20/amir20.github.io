@@ -146,7 +146,13 @@ onMounted(() => {
   }
 
   init();
-  d3.timer(step);
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reducedMotion) {
+    step(0);
+  } else {
+    d3.timer(step);
+  }
 
   window.addEventListener("mousemove", (e) => {
     mousePosition[0] = Math.min(e.clientX, 200) + 250;

@@ -2,10 +2,12 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  --at-apply: "text-[#b8513d] hover:text-[#943f2f] dark:text-[#d4a87c] underline-offset-4 dark:hover:text-[#e8c49e] underline underline-offset-4 decoration-[#d4a87c]/40 dark:decoration-[#d4a87c]/40";
+  --at-apply: "text-[#b8513d] hover:text-[#943f2f] dark:text-[#d4a87c] dark:hover:text-[#e8c49e] underline underline-offset-4 decoration-[#d4a87c]/40 dark:decoration-[#d4a87c]/40";
 }
 
 h1,
@@ -14,14 +16,31 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-optical-sizing: auto;
+  font-weight: 500;
   color: #1a1a1a;
   letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.page-title {
+  font-size: clamp(2.75rem, 6vw, 3.75rem);
+  line-height: 1.1;
 }
 
 @media (prefers-color-scheme: dark) {
   h1, h2, h3, h4, h5, h6 {
     color: #f0ece4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

@@ -1,21 +1,23 @@
 <template>
-  <a :href="href" class="glass-btn">
+  <a :href="href" :target="external ? '_blank' : undefined" :rel="external ? 'noopener noreferrer' : undefined" class="glass-btn">
     <slot />
   </a>
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   href: {
     type: String,
     required: true,
   },
 });
+
+const external = /^https?:\/\//.test(props.href);
 </script>
 
 <style scoped>
 .glass-btn {
-  --at-apply: py-2.5 px-5 rounded-xl inline-flex items-center transition-all duration-300 gap-2 text-sm font-medium tracking-wide;
+  --at-apply: py-2.5 px-5 rounded-xl inline-flex items-center gap-2 text-sm font-medium tracking-wide;
   color: #374151;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.45);
@@ -30,18 +32,10 @@ defineProps({
     background: rgba(255, 255, 255, 0.65);
     border-color: rgba(255, 255, 255, 0.7);
     color: #1a3f47;
-    box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    transform: translateY(-1px);
   }
 
   &:active {
-    transform: translateY(0);
     background: rgba(255, 255, 255, 0.5);
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -58,16 +52,10 @@ defineProps({
       background: rgba(255, 255, 255, 0.15);
       border-color: rgba(255, 255, 255, 0.2);
       color: #fff;
-      box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     &:active {
       background: rgba(255, 255, 255, 0.1);
-      box-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
   }
 }

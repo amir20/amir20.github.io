@@ -143,8 +143,7 @@ A short palette by intent. Two warms carry every accent; one neutral pair carrie
 The site is essentially flat at rest. There are no card stacks, no layered panels, no drop shadows on text or surfaces. Depth is conveyed by the live tide behind everything (parallax, motion, blur layers in the wave SVG itself), and by the `backdrop-filter: blur(12px)` glass on the social buttons. Project thumbnails carry a single 1px border and a `shadow-sm`, nothing more.
 
 ### Shadow Vocabulary
-- **Glass-rest** (`0 1px 3px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6)`): the social-button rest state. A whisper of lift over the cream.
-- **Glass-hover** (`0 4px 12px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.8)`): the same button on hover, paired with `transform: translateY(-1px)`.
+- **Glass-rest** (`0 1px 3px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6)`): the social-button rest state. A whisper of lift over the cream. Held constant across hover and active.
 - **Thumb-rest** (`shadow-sm`, ~`0 1px 2px rgba(0,0,0,0.05)`): project list image. That's all.
 
 ### Named Rules
@@ -157,8 +156,8 @@ The site is essentially flat at rest. There are no card stacks, no layered panel
 
 ### Buttons (Glass)
 - **Shape:** generously rounded (`12px`, `rounded-xl`).
-- **Light:** translucent white at 45% opacity, 1px white-50 border, blurred 12px, body-light text. Padding `10px 20px`. Hover lifts to 65% opacity and `translateY(-1px)`; active settles back.
-- **Dark:** translucent white at 8% opacity, white-12 border, body-dark text. Hover lifts to 15% opacity. Same lift, deeper shadow.
+- **Light:** translucent white at 45% opacity, 1px white-50 border, blurred 12px, body-light text. Padding `10px 20px`. Hover swaps to 65% opacity instantly; active settles to 50%.
+- **Dark:** translucent white at 8% opacity, white-12 border, body-dark text. Hover swaps to 15% opacity instantly.
 - **Use:** external destinations only (GitHub, LinkedIn, Stack Overflow). The glass treatment signals "leaves the site". Internal navigation never uses it.
 
 ### Navigation

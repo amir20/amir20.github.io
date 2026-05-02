@@ -390,6 +390,8 @@ onMounted(() => {
   const canvas = canvasRef.value;
   if (!canvas) return;
 
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
   dropCanvas = document.createElement("canvas");
   dCtx = dropCanvas.getContext("2d")!;
 
