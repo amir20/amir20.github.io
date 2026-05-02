@@ -392,19 +392,27 @@ onMounted(() => {
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  dropCanvas = document.createElement("canvas");
-  dCtx = dropCanvas.getContext("2d")!;
+  const start = () => {
+    dropCanvas = document.createElement("canvas");
+    dCtx = dropCanvas.getContext("2d")!;
 
-  initWebGL(canvas);
-  resize();
+    initWebGL(canvas);
+    resize();
 
-  // Pre-populate with a few static drops
-  for (let i = 0; i < 5; i++) {
-    drops.push(new Drop("static", true));
+    // Pre-populate with a few static drops
+    for (let i = 0; i < 5; i++) {
+      drops.push(new Drop("static", true));
+    }
+
+    window.addEventListener("resize", resize);
+    animId = requestAnimationFrame(animate);
+  };
+
+  if (typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(start, { timeout: 2000 });
+  } else {
+    setTimeout(start, 200);
   }
-
-  window.addEventListener("resize", resize);
-  animId = requestAnimationFrame(animate);
 });
 
 onUnmounted(() => {
@@ -423,5 +431,6 @@ canvas {
   height: 100%;
   pointer-events: none;
   z-index: 9998;
+  view-transition-name: none;
 }
 </style>

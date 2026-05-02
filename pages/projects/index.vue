@@ -7,23 +7,12 @@
           <div class="md:flex-shrink-0">
             <NuxtLink class="mt-1 font-medium leading-tight" :to="project.link">
               <img
-                v-if="project.image"
                 :src="project.image"
                 :alt="project.imageAlt"
                 width="320"
                 height="165"
                 :loading="i === 0 ? 'eager' : 'lazy'"
                 decoding="async"
-                class="object-cover w-full rounded-lg shadow-sm md:w-60 border border-gray-200 dark:border-gray-700"
-              />
-              <video
-                v-else-if="project.video"
-                :src="project.video"
-                autoplay
-                loop
-                muted
-                playsinline
-                preload="metadata"
                 class="object-cover w-full rounded-lg shadow-sm md:w-60 border border-gray-200 dark:border-gray-700"
               />
             </NuxtLink>
@@ -40,10 +29,11 @@
 
 <script setup>
 import { useWaveMultiplier } from "~/composables/useWaves";
-import dozzle from "~/assets/images/dozzle.png";
+import dozzle from "~/assets/images/dozzle-thumb.png";
 import dtop from "~/assets/images/dtop.png";
 import phantom from "~/assets/images/phantom.png";
 import clashleaders from "~/assets/images/clashleaders.png";
+import gruperPoster from "~/assets/images/gruper-poster.jpg";
 
 useHead({
   title: "Projects | AmirRaminfar.me",
@@ -71,7 +61,7 @@ const projects = [
   {
     title: "Gruper",
     link: "/projects/gruper",
-    video: "/gruper.mp4",
+    image: gruperPoster,
     imageAlt: "Gruper demo",
     description: `A browser extension that groups your open tabs with AI, so you stop drowning in 60-tab sessions.`,
   },
