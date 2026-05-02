@@ -12,5 +12,9 @@
       <div class="i-ph-stack-overflow-logo-bold" aria-hidden="true"></div>
       <span>Stack Overflow</span>
     </GlassButton>
+    <GlassButton href="https://buymeacoffee.com/amirraminfar" accent>
+      <div class="i-ph-coffee-bold" aria-hidden="true"></div>
+      <span>Buy me a coffee</span>
+    </GlassButton>
   </div>
 </template>

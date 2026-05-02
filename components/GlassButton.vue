@@ -1,5 +1,10 @@
 <template>
-  <a :href="href" :target="external ? '_blank' : undefined" :rel="external ? 'noopener noreferrer' : undefined" class="glass-btn">
+  <a
+    :href="href"
+    :target="external ? '_blank' : undefined"
+    :rel="external ? 'noopener noreferrer' : undefined"
+    :class="['glass-btn', { 'glass-btn--accent': accent }]"
+  >
     <slot />
   </a>
 </template>
@@ -9,6 +14,10 @@ const props = defineProps({
   href: {
     type: String,
     required: true,
+  },
+  accent: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -56,6 +65,56 @@ const external = /^https?:\/\//.test(props.href);
 
     &:active {
       background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.glass-btn--accent {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(212, 168, 124, 0.75) 0%, rgba(184, 81, 61, 0.78) 100%);
+  border-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 4px 14px rgba(184, 81, 61, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+
+  &:hover {
+    color: #fff;
+    background: linear-gradient(135deg, rgba(220, 181, 145, 0.85) 0%, rgba(196, 92, 70, 0.88) 100%);
+    border-color: rgba(255, 255, 255, 0.55);
+    transform: translateY(-1px);
+    box-shadow:
+      0 6px 18px rgba(184, 81, 61, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  &:active {
+    transform: translateY(0);
+    filter: brightness(0.97);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .glass-btn--accent {
+    color: #fff;
+    background: linear-gradient(135deg, rgba(212, 168, 124, 0.6) 0%, rgba(184, 81, 61, 0.65) 100%);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 4px 16px rgba(184, 81, 61, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      color: #fff;
+      background: linear-gradient(135deg, rgba(220, 181, 145, 0.72) 0%, rgba(196, 92, 70, 0.78) 100%);
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow:
+        0 6px 20px rgba(184, 81, 61, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
     }
   }
 }
