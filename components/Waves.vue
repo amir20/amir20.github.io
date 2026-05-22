@@ -38,6 +38,8 @@ let h = null;
 let effectiveW = null;
 let mouseHue = 0;
 let tidePhase = 0;
+let smoothedMultiplier = multiplier.value;
+let multiplierVelocity = 0;
 
 function init() {
   w = window.innerWidth;
@@ -67,7 +69,7 @@ function update(elapsed, height, wave, pathObj, seed, layer) {
   const amp = layer.amplitude;
   const shape = d3.line().curve(d3.curveBasis);
 
-  const rise = Math.min((multiplier.value - 1) / 8, 1);
+  const rise = Math.min((smoothedMultiplier - 1) / 8, 1);
   const baseY = h * (1 - (1 - layer.heightOffset) * rise);
 
   for (let i = 1; i < pts + 1; i++) {
@@ -94,9 +96,19 @@ function step(elapsed) {
   // Slow tide: gentle up/down over ~20 seconds
   tidePhase = Math.sin(elapsed / 10000) * 15 + Math.sin(elapsed / 4000) * 8;
 
+  // Spring physics on the multiplier so page navigation bounces in
+  const stiffness = 0.04;
+  const damping = 0.78;
+  multiplierVelocity += (multiplier.value - smoothedMultiplier) * stiffness;
+  multiplierVelocity *= damping;
+  smoothedMultiplier += multiplierVelocity;
+
   for (let i = 0; i < waveLayers.length; i++) {
     const layer = waveLayers[i];
-    pathHeights[i] += (h / multiplier.value - (mousePosition[1] / 3 + mousePosition[0] / 3 + 200) - pathHeights[i]) / 10;
+    const mouseOffset = mousePosition[1] / 3 + mousePosition[0] / 3 + 200;
+    const target = h / smoothedMultiplier - mouseOffset;
+    // Smooth the mouse component, but let the spring's bounce pass through directly
+    pathHeights[i] = target * 0.7 + (pathHeights[i] + (target - pathHeights[i]) / 10) * 0.3;
     update(elapsed, pathHeights[i], waves[i], paths[i], seeds[i], layer);
   }
 
