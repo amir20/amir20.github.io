@@ -36,6 +36,10 @@ const external = /^https?:\/\//.test(props.href);
   box-shadow:
     0 1px 3px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
 
   &:hover {
     background: rgba(255, 255, 255, 0.65);
@@ -79,9 +83,11 @@ const external = /^https?:\/\//.test(props.href);
     0 4px 14px rgba(184, 81, 61, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    filter 0.2s ease;
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    background 150ms ease,
+    border-color 150ms ease,
+    filter 120ms ease;
 
   &:hover {
     color: #fff;

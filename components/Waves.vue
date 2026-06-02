@@ -132,8 +132,7 @@ onMounted(() => {
     grad.append("stop").attr("offset", "0%").attr("stop-color", layer.colors[0]);
     grad.append("stop").attr("offset", "100%").attr("stop-color", layer.colors[1]);
 
-    const wave = vis.append("path").attr("class", "wave").style("fill", `url(#wave-grad-${i})`).style("opacity", layer.opacity).style("will-change", "d");
-
+    const wave = vis.append("path").attr("class", "wave").style("fill", `url(#wave-grad-${i})`).style("opacity", layer.opacity)
     if (layer.blur > 0) {
       wave.style("filter", `blur(${layer.blur}px)`);
     }
@@ -148,8 +147,7 @@ onMounted(() => {
         .attr("class", "wave-highlight")
         .style("fill", "none")
         .style("stroke", `rgba(255, 255, 255, ${highlightOpacity})`)
-        .style("stroke-width", 1.5 - (waveLayers.length - 1 - i) * 0.3)
-        .style("will-change", "d");
+        .style("stroke-width", 1.5 - (waveLayers.length - 1 - i) * 0.3);
       highlights.push({ path: highlight, waveIndex: i });
     }
 
@@ -192,7 +190,7 @@ div {
   transform: translateY(100%);
   animation:
     slide-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards,
-    bob 6s ease-in-out 1.4s infinite;
+    bob 8s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1.4s infinite;
 }
 
 @keyframes slide-up {
@@ -207,7 +205,7 @@ div {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(50px);
+    transform: translateY(20px);
   }
 }
 </style>

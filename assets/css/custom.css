@@ -1,7 +1,31 @@
-body {
-  font-family: "Roboto", sans-serif;
+@font-face {
+  font-family: "Ioskeley Mono";
+  src: url("/fonts/IoskeleyMono-SemiCondensed.woff2") format("woff2");
   font-weight: 400;
-  letter-spacing: 0.01em;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ioskeley Mono";
+  src: url("/fonts/IoskeleyMono-SemiCondensedMedium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ioskeley Mono";
+  src: url("/fonts/IoskeleyMono-SemiCondensedBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Ioskeley Mono", monospace;
+  font-weight: 400;
+  letter-spacing: -0.03em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -46,6 +70,26 @@ body::after {
   opacity: 0.16;
   mix-blend-mode: overlay;
   view-transition-name: none;
+}
+
+.page-enter-active {
+  transition:
+    opacity 240ms cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 240ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.page-leave-active {
+  transition:
+    opacity 150ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-leave-to {
+  opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

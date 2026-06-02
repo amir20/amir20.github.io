@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   modules: ["@unocss/nuxt", "nuxt-svgo", "@nuxtjs/google-fonts"],
 
   app: {
+    pageTransition: { name: "page", mode: "out-in" },
     head: {
       htmlAttrs: {
         lang: "en",
@@ -21,18 +22,18 @@ export default defineNuxtConfig({
       link: [
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "preload", as: "image", href: "/noise.png", fetchpriority: "low" },
+        { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/IoskeleyMono-SemiCondensed.woff2", crossorigin: "" },
       ],
     },
   },
 
   experimental: {
-    viewTransition: false,
+    viewTransition: true,
   },
 
   googleFonts: {
     families: {
       "Playfair Display": [400, 500, 600, 700],
-      Roboto: [400, 500, 700],
     },
     download: true,
     display: "swap",

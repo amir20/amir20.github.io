@@ -1,7 +1,7 @@
 <template>
   <div class="w-auto md:w-3/4 lg:w-1/2">
     <h1 class="mb-6 page-title" style="view-transition-name: title">Hello there.</h1>
-    <div class="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+    <div class="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-normal">
       <p>
         I've spent 18 years writing software and, for the last few of those, leading the people who write it. My work
         has spanned web products, infrastructure, recommendation systems, and developer tools, with stops at startups

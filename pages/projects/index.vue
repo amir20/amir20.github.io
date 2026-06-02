@@ -19,7 +19,7 @@
           </div>
           <div class="mt-6 md:mt-0 md:ml-8">
             <NuxtLink class="text-lg font-medium leading-tight" :to="project.link">{{ project.title }}</NuxtLink>
-            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="project.description"></p>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300 leading-normal" v-html="project.description"></p>
           </div>
         </li>
       </ul>

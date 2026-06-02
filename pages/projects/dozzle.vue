@@ -40,7 +40,7 @@
       />
     </div>
 
-    <div class="space-y-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+    <div class="space-y-6 text-lg leading-normal text-gray-600 dark:text-gray-300">
       <p>
         Dozzle started as a weekend project to scratch a real itch: I wanted to read Docker logs in a browser without
         running a heavy stack like ELK or Loki. It grew from there. Today it streams logs in real time, shows live CPU

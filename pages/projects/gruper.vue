@@ -9,7 +9,7 @@
       <video src="/gruper.mp4" autoplay loop muted playsinline preload="metadata" class="w-full block" />
     </div>
 
-    <div class="space-y-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+    <div class="space-y-6 text-lg leading-normal text-gray-600 dark:text-gray-300">
       <p>
         Gruper started from a simple frustration: I work with 40 to 80 tabs open and Chrome's manual tab groups never
         survive the next research detour. So Gruper does it for you. It looks at your open tabs and quietly clusters
