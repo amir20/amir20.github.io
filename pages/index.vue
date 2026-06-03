@@ -1,6 +1,6 @@
 <template>
   <div class="w-auto md:w-3/4 lg:w-1/2">
-    <h1 class="mb-6 page-title" style="view-transition-name: title">Hi there, my name is Amir.</h1>
+    <h1 class="mb-6 page-title" style="view-transition-name: title">Hi, my name is Amir.</h1>
     <p class="text-lg text-gray-600 dark:text-gray-300 leading-normal">
       I'm a software engineer, mentor, and parent in the Bay Area. These days I lead a team at Netflix on the Discovery
       Platform. Before that I was at <a href="https://about.google" target="_blank" rel="noopener">Google</a>,
