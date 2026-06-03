@@ -22,7 +22,6 @@ export default defineNuxtConfig({
       link: [
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "preload", as: "image", href: "/noise.png", fetchpriority: "low" },
-        { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/IoskeleyMono-SemiCondensed.woff2", crossorigin: "" },
       ],
     },
   },
@@ -33,8 +32,10 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      "Playfair Display": [400, 500, 600, 700],
+      "Work Sans": [400, 500],
+      "IBM Plex Mono": [600],
     },
+    subsets: ["latin"],
     download: true,
     display: "swap",
   },

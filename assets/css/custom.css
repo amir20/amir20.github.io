@@ -1,33 +1,7 @@
-@font-face {
-  font-family: "Ioskeley Mono";
-  src: url("/fonts/IoskeleyMono-SemiCondensed.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Ioskeley Mono";
-  src: url("/fonts/IoskeleyMono-SemiCondensedMedium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Ioskeley Mono";
-  src: url("/fonts/IoskeleyMono-SemiCondensedBold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 body {
-  font-family: "Ioskeley Mono", monospace;
+  font-family: "Work Sans", system-ui, -apple-system, sans-serif;
   font-weight: 400;
-  letter-spacing: -0.03em;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -40,11 +14,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", Georgia, serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-weight: 600;
   color: #1a1a1a;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   line-height: 1.1;
 }
 

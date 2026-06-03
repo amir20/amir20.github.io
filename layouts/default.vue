@@ -72,6 +72,9 @@ onMounted(() => {
   updateUnderline().then(() => {
     requestAnimationFrame(() => (ready.value = true));
   });
+  // Web fonts load after hydration with font-display: swap.
+  // The swap reflows the link text, so re-measure once fonts are ready.
+  document.fonts?.ready.then(updateUnderline);
   window.addEventListener("resize", updateUnderline);
 });
 
