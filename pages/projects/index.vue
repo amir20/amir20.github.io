@@ -30,6 +30,7 @@
 <script setup>
 import { useWaveMultiplier } from "~/composables/useWaves";
 import dozzle from "~/assets/images/dozzle-thumb.png";
+import halo from "~/assets/images/halo.png";
 import dtop from "~/assets/images/dtop.png";
 import phantom from "~/assets/images/phantom.png";
 import clashleaders from "~/assets/images/clashleaders.png";
@@ -50,6 +51,13 @@ const projects = [
     image: dozzle,
     imageAlt: "Dozzle screenshot",
     description: `A lightweight web UI for tailing <a href="https://www.docker.com/">Docker</a> logs in real time, across hosts, Swarm, and Kubernetes. Dozzle Cloud adds AI summaries, smart alerts, and a chat agent on top of self-hosted instances.`,
+  },
+  {
+    title: "Halo",
+    link: "https://halodisk.app/",
+    image: halo,
+    imageAlt: "Halo screenshot",
+    description: `A native macOS disk-space visualizer written in SwiftUI. Point it at a folder and it draws an interactive donut of what's eating your disk, flagging reclaimable junk like <code>node_modules</code> and caches.`,
   },
   {
     title: "dtop",
