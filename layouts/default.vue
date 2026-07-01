@@ -1,7 +1,7 @@
 <template>
   <div class="relative z-10 flex flex-col min-h-screen">
     <nav ref="navRef" class="relative flex justify-start mx-6 my-5 gap-x-5 text-base" style="view-transition-name: nav">
-      <Logo class="color-gray-800 dark:color-white fill-current mr-auto mt-1" />
+      <Signature class="color-gray-800 dark:color-white mr-auto -mt-1" />
       <NuxtLink
         v-for="item in menu"
         :key="item.path"
@@ -23,8 +23,6 @@
 </template>
 
 <script setup>
-import Logo from "~/assets/images/ar.svg";
-
 const menu = [
   { title: "Home", path: "/" },
   { title: "About Me", path: "/about" },
