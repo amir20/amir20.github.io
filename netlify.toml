@@ -1,5 +1,5 @@
 [build]
-command = "pnpm build"
+command = "bun run build"
 # publish dir is auto-detected by Netlify's Nuxt framework integration
 # (Nuxt generate writes to .output/public locally; the integration handles deploy)
 

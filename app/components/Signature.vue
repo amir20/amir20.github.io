@@ -1,14 +1,7 @@
 <template>
   <NuxtLink to="/" class="signature" aria-label="Amir Raminfar">
     <svg class="signature__svg" :viewBox="viewBox" role="img" aria-hidden="true">
-      <path
-        v-for="(s, i) in timed"
-        :key="i"
-        :d="s.d"
-        pathLength="100"
-        class="signature__stroke"
-        :style="{ '--delay': `${s.delay}s`, '--dur': `${s.dur}s` }"
-      />
+      <path v-for="(s, i) in timed" :key="i" :d="s.d" pathLength="100" class="signature__stroke" :style="{ '--delay': `${s.delay}s`, '--dur': `${s.dur}s` }" />
     </svg>
   </NuxtLink>
 </template>

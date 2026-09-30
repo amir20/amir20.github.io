@@ -28,12 +28,11 @@
 </template>
 
 <script setup>
-import { useWaveMultiplier } from "~/composables/useWaves";
-import dozzle from "~/assets/images/dozzle-thumb.png";
-import halo from "~/assets/images/halo.png";
-import dtop from "~/assets/images/dtop.png";
-import phantom from "~/assets/images/phantom.png";
-import clashleaders from "~/assets/images/clashleaders.png";
+import dozzle from "~/assets/images/dozzle-thumb.webp";
+import halo from "~/assets/images/halo.webp";
+import dtop from "~/assets/images/dtop.webp";
+import phantom from "~/assets/images/phantom.webp";
+import clashleaders from "~/assets/images/clashleaders.webp";
 import gruperPoster from "~/assets/images/gruper-poster.jpg";
 
 useHead({

@@ -9,25 +9,22 @@ export default defineNuxtConfig({
 
   css: ["@unocss/reset/tailwind-compat.css", "~/assets/css/custom.css"],
 
-  modules: ["@unocss/nuxt", "nuxt-svgo", "@nuxtjs/google-fonts"],
+  modules: ["@unocss/nuxt", "@nuxtjs/google-fonts"],
 
   app: {
-    pageTransition: { name: "page", mode: "out-in" },
+    // View transitions only. A Vue `pageTransition` would run inside the view
+    // transition's update callback, freezing the screen (and the waves) until it ends.
+    viewTransition: true,
     head: {
       htmlAttrs: {
         lang: "en",
-        class:
-          "text-gray-700 transition-colors bg-cream dark:bg-gray-900 dark:text-gray-300",
+        class: "text-gray-700 transition-colors bg-cream dark:bg-gray-900 dark:text-gray-300",
       },
       link: [
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "preload", as: "image", href: "/noise.png", fetchpriority: "low" },
       ],
     },
-  },
-
-  experimental: {
-    viewTransition: true,
   },
 
   googleFonts: {
@@ -40,21 +37,5 @@ export default defineNuxtConfig({
     display: "swap",
   },
 
-  svgo: {
-    defaultImport: "component",
-    svgoConfig: {
-      plugins: [
-        {
-          name: "preset-default",
-          params: {
-            overrides: {
-              convertPathData: false,
-            },
-          },
-        },
-      ],
-    },
-  },
-
-  compatibilityDate: "2026-03-11",
+  compatibilityDate: "2026-09-30",
 });

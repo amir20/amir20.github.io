@@ -10,11 +10,7 @@
         :to="item.path"
         >{{ item.title }}</NuxtLink
       >
-      <span
-        class="nav-underline"
-        :class="{ 'is-ready': ready }"
-        :style="{ transform: `translateX(${underline.left}px)`, width: `${underline.width}px` }"
-      />
+      <span class="nav-underline" :class="{ 'is-ready': ready }" :style="{ transform: `translateX(${underline.left}px)`, width: `${underline.width}px` }" />
     </nav>
     <main class="flex items-center flex-1 p-4 md:p-8">
       <slot />
@@ -45,9 +41,7 @@ const setLinkRef = (el, path) => {
 
 const activePath = computed(() => {
   const path = route.path;
-  const match = menu
-    .filter((item) => (item.path === "/" ? path === "/" : path.startsWith(item.path)))
-    .sort((a, b) => b.path.length - a.path.length)[0];
+  const match = menu.filter((item) => (item.path === "/" ? path === "/" : path.startsWith(item.path))).sort((a, b) => b.path.length - a.path.length)[0];
   return match?.path;
 });
 
