@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "packageManager": "bun@1.4.2",
+  "packageManager": "bun@1.4.4",
   "scripts": {
     "dev": "bun --bun nuxt dev",
     "build": "bun --bun nuxt generate",
@@ -15,15 +15,15 @@
     "d3-selection": "^3.0.0",
     "d3-shape": "^3.2.0",
     "d3-timer": "^3.0.1",
-    "nuxt": "^4.5.2",
-    "vue": "^3.5.43"
+    "nuxt": "^4.6.2",
+    "vue": "^3.5.44"
   },
   "devDependencies": {
     "@iconify-json/ph": "^1.2.2",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@unocss/nuxt": "^66.10.5",
-    "@unocss/reset": "^66.10.5",
-    "prettier": "^3.9.9",
-    "unocss": "^66.10.5"
+    "@unocss/nuxt": "^66.11.0",
+    "@unocss/reset": "^66.11.0",
+    "prettier": "^3.9.10",
+    "unocss": "^66.11.0"
   }
 }
